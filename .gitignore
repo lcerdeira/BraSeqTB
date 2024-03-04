@@ -1,0 +1,5 @@
+# dependencies
+BraSeqTB.code-workspace
+.DS_Store
+.env
+.vscode/
