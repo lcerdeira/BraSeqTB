@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Java path dir or added Java path inside user bash profile
+java_path="~/jdk-20.0.1/bin/java"
+
+# GATK path dir or added GATK path inside user bash profile
+gatk_path="~/gatk-4.4.0.0"
+
+# Reference file (fasta format) complete path
+
+referencefile="NC0009623.fasta"
+
 # Directory with BAM files
 bam_dir="/bam"
 var_dir="/vcall"
@@ -11,19 +21,19 @@ for bam_file in "${bam_dir}"/*-sorted-named-dupl.bam; do
 	sample_name="${filename%-sorted-named-dupl.bam}"
 	
 	# Output file name for variants
-	output_vcf="${var_dir}/${sample_name}-variantes.vcf"
+	output_vcf="${var_dir}/${sample_name}-variants.vcf"
 	
 	# Command to call variants with GATK HaplotypeCaller
-	/home/geninfo/ncamargo/jdk-20.0.1/bin/java -jar /home/geninfo/ncamargo/gatk-4.4.0.0/gatk-package-4.4.0.0-local.jar HaplotypeCaller --emit-ref-confidence BP_RESOLUTION -R NC0009623.fasta -I "$bam_file" --output-mode EMIT_ALL_ACTIVE_SITES -O "$output_vcf"
+	$java_path -jar ${gatk_path}/gatk-package-4.4.0.0-local.jar HaplotypeCaller --emit-ref-confidence BP_RESOLUTION -R $referencefile -I "$bam_file" --output-mode EMIT_ALL_ACTIVE_SITES -O "$output_vcf"
 	
 	echo "Variantes chamadas para $sample_name"
 	
 	# Output file name for variants with probabilities
-	output_prob_vcf="${var_dir}/${sample_name}-variantes-prob.vcf"
+	output_prob_vcf="${var_dir}/${sample_name}-variants-prob.vcf"
 	
 	# Command to calculate variant probabilities with GATK CalculateGenotypePosteriors
-	/home/geninfo/ncamargo/jdk-20.0.1/bin/java -jar /home/geninfo/ncamargo/gatk-4.4.0.0/gatk-package-4.4.0.0-local.jar CalculateGenotypePosteriors -R NC0009623.fasta -V "$output_vcf" -O "$output_prob_vcf"
+	$java_path -jar ${gatk_path}/gatk-package-4.4.0.0-local.jar CalculateGenotypePosteriors -R $referencefile -V "$output_vcf" -O "$output_prob_vcf"
 	
-	echo "Variantes com probabilidades calculadas para $sample_name"
+	echo "probabilities variants calculated for $sample_name"
 	
 done

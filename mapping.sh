@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Java path dir or added Java path inside user bash profile
+
+java_path="~/jdk-20.0.1/bin/java"
+
+# GATK path dir or added GATK path inside user bash profile
+gatk_path="~/gatk-4.4.0.0"
+
 # Directory with read pairs
 paired_dir="/directory"
 
@@ -20,49 +27,49 @@ for r1_file in ${paired_dir}/*_R1_paired.fq.gz; do
         # Build the output path for the BAM file
         output_bam="${output_dir}/${sample_name}.bam"
 
-        # Run the mapping with BWA and save to a BAM file
+        # Run the mapping with BWA and save to a BAM file using NC0009623.fasta as reference (TODO: add the sequence description)
         bwa mem -t 50 NC0009623.fasta "$r1_file" "$r2_file" | samtools view -bS - > "$output_bam"
 
-        echo "Mapeamento concluído para $sample_name"
+        echo "Mapping finished for $sample_name"
 
         # BAM Sorting
         sorted_bam="${output_bam%.bam}-sorted.bam"
         samtools sort "$output_bam" -o "$sorted_bam"
 
-        echo "Sorting concluído para $sample_name"
+        echo "Sorting finished for $sample_name"
 
         # Index of sorted BAM
         samtools index "$sorted_bam"
 
-        echo "Index BAM sorted concluído para $sample_name"
+        echo "Index BAM sorted finished for $sample_name"
 
         # Renaming with Picard
         library_name=$(basename "$(dirname "$paired_dir")")
         named_bam="${output_dir}/${sample_name}-sorted-named.bam"
-        /home/geninfo/ncamargo/jdk-20.0.1/bin/java -jar picard.jar AddOrReplaceReadGroups -I "$sorted_bam" -O "$named_bam" -RGID 1 -RGLB "$library_name" -RGPL ILLUMINA -RGPU unit1 -RGSM "$sample_name"
+        $java_path -jar picard.jar AddOrReplaceReadGroups -I "$sorted_bam" -O "$named_bam" -RGID 1 -RGLB "$library_name" -RGPL ILLUMINA -RGPU unit1 -RGSM "$sample_name"
 
-        echo "Read groups nomeadas para $sample_name"
+        echo "Read groups rename for $sample_name"
 
         # MarkDuplicates with Picard
         marked_dup_bam="${output_dir}/${sample_name}-sorted-named-dupl.bam"
         marked_dup_metrics="${output_dir}/${sample_name}-marked-dup-metrics.txt"
-        /home/geninfo/ncamargo/jdk-20.0.1/bin/java -jar picard.jar MarkDuplicates -I "$named_bam" -O "$marked_dup_bam" -M "$marked_dup_metrics"
+        $java_path -jar picard.jar MarkDuplicates -I "$named_bam" -O "$marked_dup_bam" -M "$marked_dup_metrics"
 
-        echo "Duplicadas marcadas para $sample_name"
+        echo "Duplicates flagged for $sample_name"
 
         # Index of BAM markdup
         samtools index "$marked_dup_bam"
 
-        echo "Index BAM duplicadas concluído $sample_name"
+        echo "Index BAM duplicates finished $sample_name"
 
     else
-        echo "Arquivo R2 correspondente não encontrado para $r1_file"
+        echo "R2 corresponding file does not found $r1_file"
     fi
 done
 
 # Create sequence dictionary with GATK
-/home/geninfo/ncamargo/jdk-20.0.1/bin/java -jar /home/geninfo/ncamargo/gatk-4.4.0.0/gatk-package-4.4.0.0-local.jar CreateSequenceDictionary -R NC0009623.fasta -O NC0009623.dict
+$java_path  -jar {$gatk_path}/gatk-package-4.4.0.0-local.jar CreateSequenceDictionary -R NC0009623.fasta -O NC0009623.dict
 
-echo "Dicionário para GATK criado"
+echo "GATK dictionary created"
 
 

@@ -12,7 +12,7 @@ for vcf_file in "${vcf_dir}"/*.vcf; do
     base_name=$(basename "${vcf_file}" .vcf)
 
     # Filtered file name
-    filtered_vcf="${output_dir}/${base_name}-filtrado.vcf"
+    filtered_vcf="${output_dir}/${base_name}-filtered.vcf"
 
     # Compress VCF file using bgzip
     bgzip -c "${vcf_file}" > "${vcf_file}.gz"
