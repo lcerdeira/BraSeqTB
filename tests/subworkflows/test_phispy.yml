@@ -1,0 +1,8 @@
+- name: phispy-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf phispy -c nextflow.config --help > phispy-help.txt'
+  tags:
+    - braseqtb_help
+    - phispy
+  files:
+    - path: phispy-help.txt
+      contains: ['phispy', 'braseqtb', 'version', 'dependencies']

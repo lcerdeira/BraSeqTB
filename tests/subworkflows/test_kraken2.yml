@@ -1,0 +1,8 @@
+- name: kraken-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf kraken2 -c nextflow.config --help > kraken2-help.txt'
+  tags:
+    - braseqtb_help
+    - kraken2
+  files:
+    - path: kraken2-help.txt
+      contains: ['kraken2', 'braseqtb', 'version', 'dependencies']

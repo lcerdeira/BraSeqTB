@@ -1,0 +1,9 @@
+- name: eggnog-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf eggnog -c nextflow.config --help > eggnog-help.txt'
+  tags:
+    - braseqtb
+    - braseqtb_help
+    - eggnog
+  files:
+    - path: eggnog-help.txt
+      contains: ['eggnog', 'braseqtb', 'version', 'dependencies']

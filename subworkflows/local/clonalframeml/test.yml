@@ -1,0 +1,70 @@
+- name: clonalframeml-test
+  command: bash -c 'nextflow run ./subworkflows/local/clonalframeml/test.nf -entry test_clonalframeml --wf clonalframeml -c nextflow.config ${braseqtb_ARGS}'
+  tags:
+    - clonalframeml
+    - braseqtb-tools
+  files:
+    - path: braseqtb/braseqtb-runs/clonalframeml/clonalframeml/clonalframe.ML_sequence.fasta
+      md5sum: 78864175ed8ebd617121837e2624a5f8
+    - path: braseqtb/braseqtb-runs/clonalframeml/clonalframeml/clonalframe.em.txt
+      md5sum: 8a93c4d39c326b3ec0c471f067384498
+    - path: braseqtb/braseqtb-runs/clonalframeml/clonalframeml/clonalframe.emsim.txt
+      contains: ['theta']
+    - path: braseqtb/braseqtb-runs/clonalframeml/clonalframeml/clonalframe.importation_status.txt
+      md5sum: cd67d32ee61ed2bb56dc6d8e302b1517
+    - path: braseqtb/braseqtb-runs/clonalframeml/clonalframeml/clonalframe.labelled_tree.newick
+      md5sum: 66634ad58496ac73b7752ce0a7c02dad
+    - path: braseqtb/braseqtb-runs/clonalframeml/clonalframeml/clonalframe.masked.aln.gz
+    - path: braseqtb/braseqtb-runs/clonalframeml/clonalframeml/clonalframe.position_cross_reference.txt
+      md5sum: b4cbfac7ceaa2558f33d97a64694c32c
+    - path: braseqtb/braseqtb-runs/clonalframeml/clonalframeml/logs/nf-clonalframeml.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/braseqtb-runs/clonalframeml/clonalframeml/logs/nf-clonalframeml.err
+      contains: ['Checking', 'Reading']
+    - path: braseqtb/braseqtb-runs/clonalframeml/clonalframeml/logs/nf-clonalframeml.log
+      contains: ['newick', 'Reading', 'Done']
+    - path: braseqtb/braseqtb-runs/clonalframeml/clonalframeml/logs/nf-clonalframeml.out
+      contains: ['newick', 'Read', 'done']
+    - path: braseqtb/braseqtb-runs/clonalframeml/clonalframeml/logs/nf-clonalframeml.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/braseqtb-runs/clonalframeml/clonalframeml/logs/nf-clonalframeml.sh
+      contains: ['ClonalFrameML', 'END_VERSIONS']
+    - path: braseqtb/braseqtb-runs/clonalframeml/clonalframeml/logs/nf-clonalframeml.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/braseqtb-runs/clonalframeml/clonalframeml/logs/versions.yml
+      md5sum: f5a4fbafe6ab9c7959cb229adcfde883
+    - path: braseqtb/braseqtb-runs/clonalframeml/iqtree-fast/logs/nf-iqtree-fast.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/braseqtb-runs/clonalframeml/iqtree-fast/logs/nf-iqtree-fast.err
+    - path: braseqtb/braseqtb-runs/clonalframeml/iqtree-fast/logs/nf-iqtree-fast.log
+      contains: ['iqtree', 'Kernel', 'written']
+    - path: braseqtb/braseqtb-runs/clonalframeml/iqtree-fast/logs/nf-iqtree-fast.out
+      contains: ['iqtree', 'Kernel', 'written']
+    - path: braseqtb/braseqtb-runs/clonalframeml/iqtree-fast/logs/nf-iqtree-fast.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/braseqtb-runs/clonalframeml/iqtree-fast/logs/nf-iqtree-fast.sh
+      contains: ['iqtree', 'END_VERSIONS']
+    - path: braseqtb/braseqtb-runs/clonalframeml/iqtree-fast/logs/nf-iqtree-fast.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/braseqtb-runs/clonalframeml/iqtree-fast/logs/start-tree.log
+      contains: ['iqtree', 'Kernel', 'written']
+    - path: braseqtb/braseqtb-runs/clonalframeml/iqtree-fast/logs/versions.yml
+      md5sum: 2c582783714228521f9152e660761748
+    - path: braseqtb/braseqtb-runs/clonalframeml/iqtree-fast/start-tree.bionj
+      contains: ['GCF_000292685']
+    - path: braseqtb/braseqtb-runs/clonalframeml/iqtree-fast/start-tree.ckp.gz
+    - path: braseqtb/braseqtb-runs/clonalframeml/iqtree-fast/start-tree.iqtree
+      contains: ['REFERENCES', 'Date', 'GCF_002849995']
+    - path: braseqtb/braseqtb-runs/clonalframeml/iqtree-fast/start-tree.mldist
+      contains: ['GCF_000292685', 'GCF_000300075', 'GCF_002849995']
+    - path: braseqtb/braseqtb-runs/clonalframeml/iqtree-fast/start-tree.model.gz
+    - path: braseqtb/braseqtb-runs/clonalframeml/iqtree-fast/start-tree.treefile
+      contains: ['GCF_902713755']
+    - path: braseqtb/braseqtb-runs/clonalframeml/nf-reports/clonalframeml-dag.dot
+      contains: ['clonalframemldag', 'CLONALFRAMEML', 'versions']
+    - path: braseqtb/braseqtb-runs/clonalframeml/nf-reports/clonalframeml-report.html
+      contains: ['html', 'Nextflow', 'Report']
+    - path: braseqtb/braseqtb-runs/clonalframeml/nf-reports/clonalframeml-timeline.html
+      contains: ['html', 'Nextflow', 'timeline']
+    - path: braseqtb/braseqtb-runs/clonalframeml/nf-reports/clonalframeml-trace.txt
+      contains: ['task_id']

@@ -1,0 +1,8 @@
+- name: snippy-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf snippy -c nextflow.config --help > snippy-help.txt'
+  tags:
+    - braseqtb_help
+    - snippy
+  files:
+    - path: snippy-help.txt
+      contains: ['snippy', 'braseqtb', 'version', 'dependencies']

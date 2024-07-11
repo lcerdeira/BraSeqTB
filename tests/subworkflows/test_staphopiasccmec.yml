@@ -1,0 +1,9 @@
+- name: staphopiasccmec-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf staphopiasccmec -c nextflow.config --help > staphopiasccmec-help.txt'
+  tags:
+    - braseqtb
+    - braseqtb_help
+    - staphopiasccmec
+  files:
+    - path: staphopiasccmec-help.txt
+      contains: ['staphopiasccmec', 'braseqtb', 'version', 'dependencies']

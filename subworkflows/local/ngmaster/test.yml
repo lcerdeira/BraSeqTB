@@ -1,0 +1,44 @@
+- name: ngmaster-test
+  command: bash -c 'nextflow run ./subworkflows/local/ngmaster/test.nf -entry test_ngmaster --wf ngmaster -c nextflow.config ${braseqtb_ARGS}'
+  tags:
+    - ngmaster
+    - braseqtb-tools
+  files:
+    - path: braseqtb/braseqtb-runs/ngmaster/merged-results/logs/ngmaster-concat/nf-merged-results.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/braseqtb-runs/ngmaster/merged-results/logs/ngmaster-concat/nf-merged-results.err
+    - path: braseqtb/braseqtb-runs/ngmaster/merged-results/logs/ngmaster-concat/nf-merged-results.log
+    - path: braseqtb/braseqtb-runs/ngmaster/merged-results/logs/ngmaster-concat/nf-merged-results.out
+    - path: braseqtb/braseqtb-runs/ngmaster/merged-results/logs/ngmaster-concat/nf-merged-results.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/braseqtb-runs/ngmaster/merged-results/logs/ngmaster-concat/nf-merged-results.sh
+      contains: ['csvtk', 'END_VERSIONS']
+    - path: braseqtb/braseqtb-runs/ngmaster/merged-results/logs/ngmaster-concat/nf-merged-results.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/braseqtb-runs/ngmaster/merged-results/logs/ngmaster-concat/versions.yml
+      contains: ['csvtk']
+    - path: braseqtb/braseqtb-runs/ngmaster/merged-results/ngmaster.tsv
+      md5sum: a4e7f9199b0f37985fe0ad147c626532
+    - path: braseqtb/braseqtb-runs/ngmaster/nf-reports/ngmaster-dag.dot
+      contains: ['ngmasterdag', 'NGMASTER', 'versions']
+    - path: braseqtb/braseqtb-runs/ngmaster/nf-reports/ngmaster-report.html
+      contains: ['html', 'Nextflow', 'Report']
+    - path: braseqtb/braseqtb-runs/ngmaster/nf-reports/ngmaster-timeline.html
+      contains: ['html', 'Nextflow', 'timeline']
+    - path: braseqtb/braseqtb-runs/ngmaster/nf-reports/ngmaster-trace.txt
+      contains: ['task_id']
+    - path: braseqtb/GCF_001047255/tools/ngmaster/GCF_001047255.tsv
+      md5sum: a4e7f9199b0f37985fe0ad147c626532
+    - path: braseqtb/GCF_001047255/tools/ngmaster/logs/nf-ngmaster.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/GCF_001047255/tools/ngmaster/logs/nf-ngmaster.err
+    - path: braseqtb/GCF_001047255/tools/ngmaster/logs/nf-ngmaster.log
+    - path: braseqtb/GCF_001047255/tools/ngmaster/logs/nf-ngmaster.out
+    - path: braseqtb/GCF_001047255/tools/ngmaster/logs/nf-ngmaster.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/GCF_001047255/tools/ngmaster/logs/nf-ngmaster.sh
+      contains: ['ngmaster', 'END_VERSIONS']
+    - path: braseqtb/GCF_001047255/tools/ngmaster/logs/nf-ngmaster.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/GCF_001047255/tools/ngmaster/logs/versions.yml
+      md5sum: 815c03da8b663dd93853abc249b7948b

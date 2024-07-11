@@ -1,0 +1,49 @@
+- name: braseqtb-citations_help
+  command: bash -c 'bin/braseqtb/braseqtb-citations.py --help > braseqtb-citations.txt'
+  tags:
+    - braseqtb
+    - braseqtb_help
+    - braseqtb_citations
+  files:
+    - path: braseqtb-citations.txt
+      contains: ['name', 'braseqtb', 'citations', 'exit']
+
+- name: braseqtb-citation
+  command: bash -c 'bin/braseqtb/braseqtb --citation > braseqtb-citation.txt'
+  tags:
+    - braseqtb
+    - braseqtb_subcommands
+    - braseqtb_citations
+  files:
+    - path: braseqtb-citation.txt
+      contains: ['Petit', 'Read', 'mSystems', 'pipeline']
+
+- name: braseqtb-citation2
+  command: bash -c 'bin/braseqtb/braseqtb citation > braseqtb-citation.txt'
+  tags:
+    - braseqtb
+    - braseqtb_subcommands
+    - braseqtb_citations
+  files:
+    - path: braseqtb-citation.txt
+      contains: ['Petit', 'Read', 'mSystems', 'pipeline']
+
+- name: braseqtb-citations
+  command: bash -c 'bin/braseqtb/braseqtb-citations.py --braseqtb ./ > braseqtb-citations.txt'
+  tags:
+    - braseqtb
+    - braseqtb_subcommands
+    - braseqtb_citations
+  files:
+    - path: braseqtb-citations.txt
+      contains: ['Petit', 'Seemann', 'annotator', 'staphopia-sccmec']
+
+- name: braseqtb-citations_single
+  command: bash -c 'bin/braseqtb/braseqtb-citations.py --braseqtb ./ --name staphopiasccmec > braseqtb-citations.txt'
+  tags:
+    - braseqtb
+    - braseqtb_subcommands
+    - braseqtb_citations
+  files:
+    - path: braseqtb-citations.txt
+      contains: ['Petit', 'Read', 'Staphylococcus', 'PeerJ']

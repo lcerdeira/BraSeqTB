@@ -1,0 +1,50 @@
+- name: seqsero2-test
+  command: bash -c 'nextflow run ./subworkflows/local/seqsero2/test.nf -entry test_seqsero2 --wf seqsero2 -c nextflow.config ${braseqtb_ARGS}'
+  tags:
+    - seqsero2
+    - braseqtb-tools
+  files:
+    - path: braseqtb/braseqtb-runs/seqsero2/merged-results/logs/seqsero2-concat/nf-merged-results.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/braseqtb-runs/seqsero2/merged-results/logs/seqsero2-concat/nf-merged-results.err
+    - path: braseqtb/braseqtb-runs/seqsero2/merged-results/logs/seqsero2-concat/nf-merged-results.log
+    - path: braseqtb/braseqtb-runs/seqsero2/merged-results/logs/seqsero2-concat/nf-merged-results.out
+    - path: braseqtb/braseqtb-runs/seqsero2/merged-results/logs/seqsero2-concat/nf-merged-results.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/braseqtb-runs/seqsero2/merged-results/logs/seqsero2-concat/nf-merged-results.sh
+      contains: ['csvtk', 'END_VERSIONS']
+    - path: braseqtb/braseqtb-runs/seqsero2/merged-results/logs/seqsero2-concat/nf-merged-results.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/braseqtb-runs/seqsero2/merged-results/logs/seqsero2-concat/versions.yml
+      contains: ['csvtk']
+    - path: braseqtb/braseqtb-runs/seqsero2/merged-results/seqsero2.tsv
+      contains: ['GCF_016028495', 'Salmonella', 'Typhimurium']
+    - path: braseqtb/braseqtb-runs/seqsero2/nf-reports/seqsero2-dag.dot
+      contains: ['seqsero2dag', 'SEQSERO2', 'versions']
+    - path: braseqtb/braseqtb-runs/seqsero2/nf-reports/seqsero2-report.html
+      contains: ['html', 'Nextflow', 'Report']
+    - path: braseqtb/braseqtb-runs/seqsero2/nf-reports/seqsero2-timeline.html
+      contains: ['html', 'Nextflow', 'timeline']
+    - path: braseqtb/braseqtb-runs/seqsero2/nf-reports/seqsero2-trace.txt
+      contains: ['task_id']
+    - path: braseqtb/GCF_016028495/tools/seqsero2/GCF_016028495_log.txt
+      md5sum: 67a633ace7d179f8debd89e17de69fe7
+    - path: braseqtb/GCF_016028495/tools/seqsero2/GCF_016028495_result.tsv
+      contains: ['GCF_016028495', 'Salmonella', 'Typhimurium']
+    - path: braseqtb/GCF_016028495/tools/seqsero2/GCF_016028495_result.txt
+      contains: ['GCF_016028495', 'Salmonella', 'Typhimurium', 'Note']
+    - path: braseqtb/GCF_016028495/tools/seqsero2/logs/nf-seqsero2.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/GCF_016028495/tools/seqsero2/logs/nf-seqsero2.err
+    - path: braseqtb/GCF_016028495/tools/seqsero2/logs/nf-seqsero2.log
+      contains: ['GCF_016028495', 'Salmonella', 'Typhimurium', 'Note']
+    - path: braseqtb/GCF_016028495/tools/seqsero2/logs/nf-seqsero2.out
+      contains: ['GCF_016028495', 'Salmonella', 'Typhimurium', 'Note']
+    - path: braseqtb/GCF_016028495/tools/seqsero2/logs/nf-seqsero2.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/GCF_016028495/tools/seqsero2/logs/nf-seqsero2.sh
+      contains: ['SeqSero2', 'END_VERSIONS']
+    - path: braseqtb/GCF_016028495/tools/seqsero2/logs/nf-seqsero2.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/GCF_016028495/tools/seqsero2/logs/versions.yml
+      md5sum: 946abb502396439bced7ef487946ca2c

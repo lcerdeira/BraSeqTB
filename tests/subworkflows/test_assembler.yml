@@ -1,0 +1,8 @@
+- name: assembler-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf assembler -c nextflow.config --help > assembler-help.txt'
+  tags:
+    - braseqtb_help_disable
+    - assembler_disable
+  files:
+    - path: assembler-help.txt
+      contains: ['assembler', 'braseqtb', 'version', 'dependencies']

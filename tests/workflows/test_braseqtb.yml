@@ -1,0 +1,17 @@
+- name: braseqtb-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --help > braseqtb-help.txt'
+  tags:
+    - braseqtb
+    - braseqtb_help
+  files:
+    - path: braseqtb-help.txt
+      contains: ['Required', 'braseqtb', 'version', 'dependencies']
+
+- name: braseqtb-braseqtb_wfs
+  command: bash -c 'nextflow run ./main.nf --list_wfs > braseqtb-wfs.txt'
+  tags:
+    - braseqtb
+    - braseqtb_help
+  files:
+    - path: braseqtb-wfs.txt
+      contains: ['staphopia', 'Subworkflows', 'Modules', 'tbprofiler']

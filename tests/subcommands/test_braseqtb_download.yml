@@ -1,0 +1,9 @@
+- name: braseqtb-download_help
+  command: bash -c 'bin/braseqtb/braseqtb-download.py --help > braseqtb-download.txt'
+  tags:
+    - braseqtb
+    - braseqtb_help
+    - braseqtb_download
+  files:
+    - path: braseqtb-download.txt
+      contains: ['exit', 'braseqtb', 'download', 'Singularity', '--wf', '--force_rebuild']

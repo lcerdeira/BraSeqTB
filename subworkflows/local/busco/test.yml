@@ -1,0 +1,91 @@
+- name: busco-test
+  command: bash -c 'nextflow run ./subworkflows/local/busco/test.nf -entry test_busco --wf busco -c nextflow.config ${braseqtb_ARGS}'
+  tags:
+    - busco
+    - braseqtb-tools
+  files:
+    - path: braseqtb/braseqtb-runs/busco-bacteria_odb10/merged-results/busco.tsv
+      md5sum: b5118703a4b6ef1274f9f894ebe2ed5c
+    - path: braseqtb/braseqtb-runs/busco-bacteria_odb10/merged-results/logs/busco-concat/nf-merged-results.begin
+    - path: braseqtb/braseqtb-runs/busco-bacteria_odb10/merged-results/logs/busco-concat/nf-merged-results.err
+    - path: braseqtb/braseqtb-runs/busco-bacteria_odb10/merged-results/logs/busco-concat/nf-merged-results.log
+    - path: braseqtb/braseqtb-runs/busco-bacteria_odb10/merged-results/logs/busco-concat/nf-merged-results.out
+    - path: braseqtb/braseqtb-runs/busco-bacteria_odb10/merged-results/logs/busco-concat/nf-merged-results.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/braseqtb-runs/busco-bacteria_odb10/merged-results/logs/busco-concat/nf-merged-results.sh
+      contains: ['csvtk', 'END_VERSIONS']
+    - path: braseqtb/braseqtb-runs/busco-bacteria_odb10/merged-results/logs/busco-concat/nf-merged-results.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/braseqtb-runs/busco-bacteria_odb10/merged-results/logs/busco-concat/versions.yml
+      md5sum: b45e81d6e1c8a0b37a7b3ea491992002
+    - path: braseqtb/braseqtb-runs/busco-bacteria_odb10/nf-reports/busco-dag.dot
+      contains: ['buscodag', 'BUSCO', 'versions']
+    - path: braseqtb/braseqtb-runs/busco-bacteria_odb10/nf-reports/busco-report.html
+      contains: ['html', 'Nextflow', 'Report']
+    - path: braseqtb/braseqtb-runs/busco-bacteria_odb10/nf-reports/busco-timeline.html
+      contains: ['html', 'Nextflow', 'timeline']
+    - path: braseqtb/braseqtb-runs/busco-bacteria_odb10/nf-reports/busco-trace.txt
+      contains: ['task_id']
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/GCF_000292685-summary.txt
+      md5sum: b5118703a4b6ef1274f9f894ebe2ed5c
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/logs/bbtools_err.log
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/logs/bbtools_out.log
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/logs/busco.log
+      contains: ['BuscoConfig', 'busco', 'mode']
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/logs/hmmsearch_err.log
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/logs/hmmsearch_out.log
+      contains: ["hmmsearch", "summary", "CPU"]
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/logs/nf-busco.begin
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/logs/nf-busco.err
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/logs/nf-busco.log
+      contains: ["Start", "Fragmented", "done"]
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/logs/nf-busco.out
+      contains: ["Start", "Fragmented", "done"]
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/logs/nf-busco.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/logs/nf-busco.sh
+      contains: ['busco', 'END_VERSIONS']
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/logs/nf-busco.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/logs/prodigal_err.log
+      md5sum: c1fdc6977332f53dfe7f632733bb4585
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/logs/prodigal_mode_single_code_11_err.log
+      md5sum: c1fdc6977332f53dfe7f632733bb4585
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/logs/prodigal_mode_single_code_11_out.log
+      md5sum: 50752acb1c5a20be886bfdfc06635bcb
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/logs/prodigal_out.log
+      md5sum: 50752acb1c5a20be886bfdfc06635bcb
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/logs/versions.yml
+      md5sum: 79800901f8e3462158093c07bc2aeba9
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/prodigal_output/.checkpoint
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/prodigal_output/predicted_genes/predicted.faa
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/prodigal_output/predicted_genes/predicted.fna
+      md5sum: ddc508a18f60e7f3314534df50cdf8ca
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/prodigal_output/predicted_genes/tmp/prodigal_mode_single_code_11.faa
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/prodigal_output/predicted_genes/tmp/prodigal_mode_single_code_11.fna
+      md5sum: ddc508a18f60e7f3314534df50cdf8ca
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/run_bacteria_odb10/.bbtools_output/.checkpoint
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/run_bacteria_odb10/busco_sequences/fragmented_busco_sequences/1272633at2.faa
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/run_bacteria_odb10/busco_sequences/fragmented_busco_sequences/1272633at2.fna
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/run_bacteria_odb10/busco_sequences/single_copy_busco_sequences/1054741at2.faa
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/run_bacteria_odb10/busco_sequences/single_copy_busco_sequences/1054741at2.fna
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/run_bacteria_odb10/busco_sequences/single_copy_busco_sequences/1132353at2.faa
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/run_bacteria_odb10/busco_sequences/single_copy_busco_sequences/1132353at2.fna
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/run_bacteria_odb10/busco_sequences/single_copy_busco_sequences/961486at2.faa
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/run_bacteria_odb10/busco_sequences/single_copy_busco_sequences/961486at2.fna
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/run_bacteria_odb10/full_table.tsv
+      contains: ["BUSCO", "Complete", "Fragmented", "Missing"]
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/run_bacteria_odb10/hmmer_output/.checkpoint
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/run_bacteria_odb10/hmmer_output/1054741at2.out
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/run_bacteria_odb10/hmmer_output/1132353at2.out
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/run_bacteria_odb10/hmmer_output/961486at2.out
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/run_bacteria_odb10/missing_busco_list.tsv
+      contains: ["BUSCO", "at2"]
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/run_bacteria_odb10/short_summary.json
+      contains: ["one_line_summary", "dataset"]
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/run_bacteria_odb10/short_summary.txt
+      contains: ["BUSCO", "Dependencies", "Total"]
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/short_summary.specific.bacteria_odb10.GCF_000292685.fna.json
+      contains: ["one_line_summary", "dataset"]
+    - path: braseqtb/GCF_000292685/tools/busco/bacteria_odb10/short_summary.specific.bacteria_odb10.GCF_000292685.fna.txt
+      contains: ["BUSCO", "Dependencies", "Total"]

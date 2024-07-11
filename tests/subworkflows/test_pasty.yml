@@ -1,0 +1,8 @@
+- name: pasty-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf pasty -c nextflow.config --help > pasty-help.txt'
+  tags:
+    - braseqtb_help
+    - pasty
+  files:
+    - path: pasty-help.txt
+      contains: ['pasty', 'braseqtb', 'version', 'dependencies']

@@ -1,0 +1,8 @@
+- name: shigeifinder-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf shigeifinder -c nextflow.config --help > shigeifinder-help.txt'
+  tags:
+    - braseqtb_help
+    - shigeifinder
+  files:
+    - path: shigeifinder-help.txt
+      contains: ['shigeifinder', 'braseqtb', 'version', 'dependencies']

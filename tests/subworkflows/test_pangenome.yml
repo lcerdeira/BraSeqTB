@@ -1,0 +1,9 @@
+- name: pangenome-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf pangenome -c nextflow.config --help > pangenome-help.txt'
+  tags:
+    - braseqtb
+    - braseqtb_help
+    - pangenome
+  files:
+    - path: pangenome-help.txt
+      contains: ['pangenome', 'braseqtb', 'version', 'dependencies']

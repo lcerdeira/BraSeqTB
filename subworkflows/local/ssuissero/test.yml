@@ -1,0 +1,46 @@
+- name: ssuissero-test
+  command: bash -c 'nextflow run ./subworkflows/local/ssuissero/test.nf -entry test_ssuissero --wf ssuissero -c nextflow.config ${braseqtb_ARGS}'
+  tags:
+    - ssuissero
+    - braseqtb-tools
+  files:
+    - path: braseqtb/braseqtb-runs/ssuissero/merged-results/logs/ssuissero-concat/nf-merged-results.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/braseqtb-runs/ssuissero/merged-results/logs/ssuissero-concat/nf-merged-results.err
+    - path: braseqtb/braseqtb-runs/ssuissero/merged-results/logs/ssuissero-concat/nf-merged-results.log
+    - path: braseqtb/braseqtb-runs/ssuissero/merged-results/logs/ssuissero-concat/nf-merged-results.out
+    - path: braseqtb/braseqtb-runs/ssuissero/merged-results/logs/ssuissero-concat/nf-merged-results.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/braseqtb-runs/ssuissero/merged-results/logs/ssuissero-concat/nf-merged-results.sh
+      md5sum: bc1c8468ada0522f65145c01eed10c14
+    - path: braseqtb/braseqtb-runs/ssuissero/merged-results/logs/ssuissero-concat/nf-merged-results.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/braseqtb-runs/ssuissero/merged-results/logs/ssuissero-concat/versions.yml
+      contains: ['csvtk']
+    - path: braseqtb/braseqtb-runs/ssuissero/merged-results/ssuissero.tsv
+      md5sum: b1312d3041a6543154be554d5ec3b0b9
+    - path: braseqtb/braseqtb-runs/ssuissero/nf-reports/ssuissero-dag.dot
+      contains: ["ssuisserodag", "SSUISSERO", "version"]
+    - path: braseqtb/braseqtb-runs/ssuissero/nf-reports/ssuissero-report.html
+      contains: ['html', 'Nextflow', 'Report']
+    - path: braseqtb/braseqtb-runs/ssuissero/nf-reports/ssuissero-timeline.html
+      contains: ['html', 'Nextflow', 'timeline']
+    - path: braseqtb/braseqtb-runs/ssuissero/nf-reports/ssuissero-trace.txt
+      contains: ['task_id']
+    - path: braseqtb/GCF_002285535/tools/ssuissero/GCF_002285535_serotyping_res.tsv
+      md5sum: b1312d3041a6543154be554d5ec3b0b9
+    - path: braseqtb/GCF_002285535/tools/ssuissero/logs/nf-ssuissero.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/GCF_002285535/tools/ssuissero/logs/nf-ssuissero.err
+    - path: braseqtb/GCF_002285535/tools/ssuissero/logs/nf-ssuissero.log
+      contains: ["Finished"]
+    - path: braseqtb/GCF_002285535/tools/ssuissero/logs/nf-ssuissero.out
+      contains: ["Finished"]
+    - path: braseqtb/GCF_002285535/tools/ssuissero/logs/nf-ssuissero.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/GCF_002285535/tools/ssuissero/logs/nf-ssuissero.sh
+      contains: ["SsuisSero", "END_VERSIONS"]
+    - path: braseqtb/GCF_002285535/tools/ssuissero/logs/nf-ssuissero.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/GCF_002285535/tools/ssuissero/logs/versions.yml
+      md5sum: 493a862c5de7ac395974696387a247e3

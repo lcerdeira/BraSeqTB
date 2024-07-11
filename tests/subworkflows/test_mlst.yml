@@ -1,0 +1,8 @@
+- name: mlst-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf mlst -c nextflow.config --help > mlst-help.txt'
+  tags:
+    - braseqtb_help
+    - mlst
+  files:
+    - path: mlst-help.txt
+      contains: ['mlst', 'braseqtb', 'version', 'dependencies']

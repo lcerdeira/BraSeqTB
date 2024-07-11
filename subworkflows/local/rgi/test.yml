@@ -1,0 +1,85 @@
+- name: rgi-test
+  command: bash -c 'nextflow run ./subworkflows/local/rgi/test.nf -entry test_rgi --wf rgi -c nextflow.config ${braseqtb_ARGS}'
+  tags:
+    - rgi
+    - braseqtb-tools
+  files:
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/logs/rgi-concat/nf-merged-results.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/logs/rgi-concat/nf-merged-results.err
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/logs/rgi-concat/nf-merged-results.log
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/logs/rgi-concat/nf-merged-results.out
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/logs/rgi-concat/nf-merged-results.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/logs/rgi-concat/nf-merged-results.sh
+      contains: ["csvtk", "END_VERSIONS"]
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/logs/rgi-concat/nf-merged-results.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/logs/rgi-concat/versions.yml
+      contains: ['csvtk']
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/logs/rgi-heatmap/nf-merged-results.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/logs/rgi-heatmap/nf-merged-results.err
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/logs/rgi-heatmap/nf-merged-results.log
+      contains: ['EPS', 'PNG', 'Rendering']
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/logs/rgi-heatmap/nf-merged-results.out
+      contains: ['EPS', 'PNG', 'Rendering']
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/logs/rgi-heatmap/nf-merged-results.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/logs/rgi-heatmap/nf-merged-results.sh
+      contains: ["rgi", "heatmap", "END_VERSIONS"]
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/logs/rgi-heatmap/nf-merged-results.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/logs/rgi-heatmap/versions.yml
+      md5sum: 47dd197ef74cfe2af440ddf5b6a56c72
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/rgi-2.csv
+      contains: ["gene", "Klebsiella", "Escherichia"]
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/rgi-2.eps
+      contains: ["portrait", "end", "fill"]
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/rgi-2.png
+    - path: braseqtb/braseqtb-runs/rgi/merged-results/rgi.tsv
+      contains: ["ORF_ID", "disinfecting", "antibiotic"]
+    - path: braseqtb/braseqtb-runs/rgi/nf-reports/rgi-dag.dot
+      contains: ["rgidag", "RGI", "version"]
+    - path: braseqtb/braseqtb-runs/rgi/nf-reports/rgi-report.html
+      contains: ['html', 'Nextflow', 'Report']
+    - path: braseqtb/braseqtb-runs/rgi/nf-reports/rgi-timeline.html
+      contains: ['html', 'Nextflow', 'timeline']
+    - path: braseqtb/braseqtb-runs/rgi/nf-reports/rgi-trace.txt
+      contains: ['task_id']
+    - path: braseqtb/GCA_000027305/tools/rgi/GCA_000027305.json
+      contains: ["type_match", "model_name", "orf_dna_sequence"]
+    - path: braseqtb/GCA_000027305/tools/rgi/GCA_000027305.txt
+      contains: ["ORF_ID", "disinfecting", "antibiotic"]
+    - path: braseqtb/GCA_000027305/tools/rgi/logs/nf-rgi.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/GCA_000027305/tools/rgi/logs/nf-rgi.err
+    - path: braseqtb/GCA_000027305/tools/rgi/logs/nf-rgi.log
+    - path: braseqtb/GCA_000027305/tools/rgi/logs/nf-rgi.out
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/GCA_000027305/tools/rgi/logs/nf-rgi.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/GCA_000027305/tools/rgi/logs/nf-rgi.sh
+      contains: ["rgi", "main", "END_VERSIONS"]
+    - path: braseqtb/GCA_000027305/tools/rgi/logs/nf-rgi.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/GCA_000027305/tools/rgi/logs/versions.yml
+      md5sum: 8a5ec5372a0936c4f30740344b771701
+    - path: braseqtb/GCF_900478275/tools/rgi/GCF_900478275.json
+      contains: ["type_match", "model_name", "orf_dna_sequence"]
+    - path: braseqtb/GCF_900478275/tools/rgi/GCF_900478275.txt
+      contains: ["ORF_ID", "disinfecting", "antibiotic"]
+    - path: braseqtb/GCF_900478275/tools/rgi/logs/nf-rgi.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/GCF_900478275/tools/rgi/logs/nf-rgi.err
+    - path: braseqtb/GCF_900478275/tools/rgi/logs/nf-rgi.log
+    - path: braseqtb/GCF_900478275/tools/rgi/logs/nf-rgi.out
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/GCF_900478275/tools/rgi/logs/nf-rgi.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/GCF_900478275/tools/rgi/logs/nf-rgi.sh
+      contains: ["rgi", "main", "END_VERSIONS"]
+    - path: braseqtb/GCF_900478275/tools/rgi/logs/nf-rgi.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/GCF_900478275/tools/rgi/logs/versions.yml
+      md5sum: 8a5ec5372a0936c4f30740344b771701

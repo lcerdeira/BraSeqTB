@@ -1,0 +1,9 @@
+- name: lissero-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf lissero -c nextflow.config --help > lissero-help.txt'
+  tags:
+    - braseqtb
+    - braseqtb_help
+    - lissero
+  files:
+    - path: lissero-help.txt
+      contains: ['lissero', 'braseqtb', 'version', 'dependencies']

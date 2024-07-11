@@ -1,0 +1,9 @@
+- name: kleborate-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf kleborate -c nextflow.config --help > kleborate-help.txt'
+  tags:
+    - braseqtb
+    - braseqtb_help
+    - kleborate
+  files:
+    - path: kleborate-help.txt
+      contains: ['kleborate', 'braseqtb', 'version', 'dependencies']

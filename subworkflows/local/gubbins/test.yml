@@ -1,0 +1,45 @@
+- name: gubbins-test
+  command: bash -c 'nextflow run ./subworkflows/local/gubbins/test.nf -entry test_gubbins --wf gubbins -c nextflow.config ${braseqtb_ARGS}'
+  tags:
+    - gubbins
+    - braseqtb-tools
+  files:
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/gubbins.branch_base_reconstruction.embl.gz
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/gubbins.filtered_polymorphic_sites.fasta.gz
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/gubbins.filtered_polymorphic_sites.phylip
+      md5sum: 15efec56c27103e2f777d946a297d399
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/gubbins.final_tree.tre
+      contains: ["GCF_902713755", "GCF_000298385", "GCF_002849995", "GCF_000300075"]
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/gubbins.masked.aln.gz
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/gubbins.node_labelled.final_tree.tre
+      contains: ["GCF_902713755", "GCF_000298385", "GCF_002849995", "GCF_000300075"]
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/gubbins.per_branch_statistics.csv
+      md5sum: 2dc0dbae9a7cf545bfc56ac5d734342d
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/gubbins.recombination_predictions.embl.gz
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/gubbins.recombination_predictions.gff.gz
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/gubbins.summary_of_snp_distribution.vcf.gz
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/logs/gubbins.log
+      contains: ["Process", "raxml", "Model", "Gubbins"]
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/logs/nf-gubbins.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/logs/nf-gubbins.err
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/logs/nf-gubbins.log
+      contains: ["RAxML", "Alignment", "Substitution", "final"]
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/logs/nf-gubbins.out
+      contains: ["RAxML", "Alignment", "Substitution", "final"]
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/logs/nf-gubbins.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/logs/nf-gubbins.sh
+      contains: ["run_gubbins.py", "END_VERSIONS"]
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/logs/nf-gubbins.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/braseqtb-runs/gubbins/gubbins/logs/versions.yml
+      md5sum: 9ddc482d1d3ed3782ea8fecf9db5306c
+    - path: braseqtb/braseqtb-runs/gubbins/nf-reports/gubbins-dag.dot
+      contains: ['gubbinsdag', 'GUBBINS', 'versions']
+    - path: braseqtb/braseqtb-runs/gubbins/nf-reports/gubbins-report.html
+      contains: ['html', 'Nextflow', 'Report']
+    - path: braseqtb/braseqtb-runs/gubbins/nf-reports/gubbins-timeline.html
+      contains: ['html', 'Nextflow', 'timeline']
+    - path: braseqtb/braseqtb-runs/gubbins/nf-reports/gubbins-trace.txt
+      contains: ['task_id']

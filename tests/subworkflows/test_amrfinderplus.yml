@@ -1,0 +1,8 @@
+- name: amrfinderplus-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf amrfinderplus -c nextflow.config --help > amrfinderplus-help.txt'
+  tags:
+    - braseqtb_help
+    - amrfinderplus
+  files:
+    - path: amrfinderplus-help.txt
+      contains: ['amrfinderplus', 'braseqtb', 'version', 'dependencies']

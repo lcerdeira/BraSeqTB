@@ -1,0 +1,9 @@
+- name: hicap-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf hicap -c nextflow.config --help > hicap-help.txt'
+  tags:
+    - braseqtb
+    - braseqtb_help
+    - hicap
+  files:
+    - path: hicap-help.txt
+      contains: ['hicap', 'braseqtb', 'version', 'dependencies']

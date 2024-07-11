@@ -1,0 +1,9 @@
+- name: gtdb-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf gtdb -c nextflow.config --help > gtdb-help.txt'
+  tags:
+    - braseqtb
+    - braseqtb_help
+    - gtdb
+  files:
+    - path: gtdb-help.txt
+      contains: ['gtdb', 'braseqtb', 'version', 'dependencies']

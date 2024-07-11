@@ -1,0 +1,8 @@
+- name: ssuissero-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf ssuissero -c nextflow.config --help > ssuissero-help.txt'
+  tags:
+    - braseqtb_help
+    - ssuissero
+  files:
+    - path: ssuissero-help.txt
+      contains: ['ssuissero', 'braseqtb', 'version', 'dependencies']

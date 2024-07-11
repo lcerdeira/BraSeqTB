@@ -1,0 +1,89 @@
+- name: blastp-test
+  command: bash -c 'nextflow run ./subworkflows/local/blastp/test.nf -entry test_blastp --wf blastp -c nextflow.config ${braseqtb_ARGS}'
+  tags:
+    - blastp
+    - braseqtb-tools
+  files:
+    - path: braseqtb/braseqtb-runs/blastp/merged-results/blastp.tsv
+      md5sum: 3597b9b6cb1dae90582751a4a27df8f0
+    - path: braseqtb/braseqtb-runs/blastp/merged-results/logs/blastp-concat/nf-merged-results.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/braseqtb-runs/blastp/merged-results/logs/blastp-concat/nf-merged-results.err
+    - path: braseqtb/braseqtb-runs/blastp/merged-results/logs/blastp-concat/nf-merged-results.log
+    - path: braseqtb/braseqtb-runs/blastp/merged-results/logs/blastp-concat/nf-merged-results.out
+    - path: braseqtb/braseqtb-runs/blastp/merged-results/logs/blastp-concat/nf-merged-results.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/braseqtb-runs/blastp/merged-results/logs/blastp-concat/nf-merged-results.sh
+      contains: ['csvtk', 'END_VERSIONS']
+    - path: braseqtb/braseqtb-runs/blastp/merged-results/logs/blastp-concat/nf-merged-results.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/braseqtb-runs/blastp/merged-results/logs/blastp-concat/versions.yml
+      contains: ['csvtk']
+    - path: braseqtb/braseqtb-runs/blastp/nf-reports/blastp-dag.dot
+      contains: ['blastpdag', 'BLASTP', 'versions']
+    - path: braseqtb/braseqtb-runs/blastp/nf-reports/blastp-report.html
+      contains: ['html', 'Nextflow', 'Report']
+    - path: braseqtb/braseqtb-runs/blastp/nf-reports/blastp-timeline.html
+      contains: ['html', 'Nextflow', 'timeline']
+    - path: braseqtb/braseqtb-runs/blastp/nf-reports/blastp-trace.txt
+      contains: ['task_id']
+    - path: braseqtb/SRX1390622/tools/blastp/SRX1390622.blastp.tsv
+      md5sum: 3597b9b6cb1dae90582751a4a27df8f0
+    - path: braseqtb/SRX1390622/tools/blastp/logs/nf-blastp.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/SRX1390622/tools/blastp/logs/nf-blastp.err
+    - path: braseqtb/SRX1390622/tools/blastp/logs/nf-blastp.log
+    - path: braseqtb/SRX1390622/tools/blastp/logs/nf-blastp.out
+    - path: braseqtb/SRX1390622/tools/blastp/logs/nf-blastp.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/SRX1390622/tools/blastp/logs/nf-blastp.sh
+      contains: ['blastp', 'END_VERSIONS']
+    - path: braseqtb/SRX1390622/tools/blastp/logs/nf-blastp.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/SRX1390622/tools/blastp/logs/versions.yml
+      md5sum: 9f491f4e6eb74583235d93a8602bdc18
+
+- name: blastp-test_gz
+  command: bash -c 'nextflow run ./subworkflows/local/blastp/test.nf -entry test_blastp_gz --wf blastp -c nextflow.config ${braseqtb_ARGS}'
+  tags:
+    - blastp
+    - braseqtb-tools
+  files:
+    - path: braseqtb/braseqtb-runs/blastp/merged-results/blastp.tsv
+      md5sum: 3597b9b6cb1dae90582751a4a27df8f0
+    - path: braseqtb/braseqtb-runs/blastp/merged-results/logs/blastp-concat/nf-merged-results.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/braseqtb-runs/blastp/merged-results/logs/blastp-concat/nf-merged-results.err
+    - path: braseqtb/braseqtb-runs/blastp/merged-results/logs/blastp-concat/nf-merged-results.log
+    - path: braseqtb/braseqtb-runs/blastp/merged-results/logs/blastp-concat/nf-merged-results.out
+    - path: braseqtb/braseqtb-runs/blastp/merged-results/logs/blastp-concat/nf-merged-results.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/braseqtb-runs/blastp/merged-results/logs/blastp-concat/nf-merged-results.sh
+      contains: ['csvtk', 'END_VERSIONS']
+    - path: braseqtb/braseqtb-runs/blastp/merged-results/logs/blastp-concat/nf-merged-results.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/braseqtb-runs/blastp/merged-results/logs/blastp-concat/versions.yml
+      contains: ['csvtk']
+    - path: braseqtb/braseqtb-runs/blastp/nf-reports/blastp-dag.dot
+      contains: ['blastpdag', 'BLASTP', 'versions']
+    - path: braseqtb/braseqtb-runs/blastp/nf-reports/blastp-report.html
+      contains: ['html', 'Nextflow', 'Report']
+    - path: braseqtb/braseqtb-runs/blastp/nf-reports/blastp-timeline.html
+      contains: ['html', 'Nextflow', 'timeline']
+    - path: braseqtb/braseqtb-runs/blastp/nf-reports/blastp-trace.txt
+      contains: ['task_id']
+    - path: braseqtb/SRX1390622/tools/blastp/SRX1390622.blastp.tsv
+      md5sum: 3597b9b6cb1dae90582751a4a27df8f0
+    - path: braseqtb/SRX1390622/tools/blastp/logs/nf-blastp.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/SRX1390622/tools/blastp/logs/nf-blastp.err
+    - path: braseqtb/SRX1390622/tools/blastp/logs/nf-blastp.log
+    - path: braseqtb/SRX1390622/tools/blastp/logs/nf-blastp.out
+    - path: braseqtb/SRX1390622/tools/blastp/logs/nf-blastp.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/SRX1390622/tools/blastp/logs/nf-blastp.sh
+      contains: ['blastp', 'END_VERSIONS']
+    - path: braseqtb/SRX1390622/tools/blastp/logs/nf-blastp.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/SRX1390622/tools/blastp/logs/versions.yml
+      md5sum: d112a07590e131823d0c9c58d6c5b9d1

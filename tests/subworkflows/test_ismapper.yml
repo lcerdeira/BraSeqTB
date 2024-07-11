@@ -1,0 +1,9 @@
+- name: ismapper-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf ismapper -c nextflow.config --help > ismapper-help.txt'
+  tags:
+    - braseqtb
+    - braseqtb_help
+    - ismapper
+  files:
+    - path: ismapper-help.txt
+      contains: ['ismapper', 'braseqtb', 'version', 'dependencies']

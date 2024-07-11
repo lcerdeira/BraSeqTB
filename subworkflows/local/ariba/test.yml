@@ -1,0 +1,70 @@
+- name: ariba-test
+  command: bash -c 'nextflow run ./subworkflows/local/ariba/test.nf -entry test_ariba --wf ariba --ariba_dir ariba --ariba_db card -c nextflow.config ${braseqtb_ARGS}'
+  tags:
+    - ariba
+    - braseqtb-tools
+  files:
+    - path: braseqtb/braseqtb-runs/ariba-card/merged-results/card-report.tsv
+      contains: ["ariba_ref_name", "reads", "resistance", "Clostridioides"]
+    - path: braseqtb/braseqtb-runs/ariba-card/merged-results/card-summary.csv
+      contains: ["name", "novel_var", "Clostridioides"]
+    - path: braseqtb/braseqtb-runs/ariba-card/merged-results/logs/card-report/nf-merged-results.begin
+    - path: braseqtb/braseqtb-runs/ariba-card/merged-results/logs/card-report/nf-merged-results.err
+    - path: braseqtb/braseqtb-runs/ariba-card/merged-results/logs/card-report/nf-merged-results.log
+    - path: braseqtb/braseqtb-runs/ariba-card/merged-results/logs/card-report/nf-merged-results.out
+    - path: braseqtb/braseqtb-runs/ariba-card/merged-results/logs/card-report/nf-merged-results.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/braseqtb-runs/ariba-card/merged-results/logs/card-report/nf-merged-results.sh
+      contains: ['csvtk', 'concat', "END_VERSIONS"]
+    - path: braseqtb/braseqtb-runs/ariba-card/merged-results/logs/card-report/nf-merged-results.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/braseqtb-runs/ariba-card/merged-results/logs/card-report/versions.yml
+      md5sum: 344624d16fe24cfad6e9f45a19be708f
+    - path: braseqtb/braseqtb-runs/ariba-card/merged-results/logs/card-summary/nf-merged-results.begin
+    - path: braseqtb/braseqtb-runs/ariba-card/merged-results/logs/card-summary/nf-merged-results.err
+    - path: braseqtb/braseqtb-runs/ariba-card/merged-results/logs/card-summary/nf-merged-results.log
+    - path: braseqtb/braseqtb-runs/ariba-card/merged-results/logs/card-summary/nf-merged-results.out
+    - path: braseqtb/braseqtb-runs/ariba-card/merged-results/logs/card-summary/nf-merged-results.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/braseqtb-runs/ariba-card/merged-results/logs/card-summary/nf-merged-results.sh
+      contains: ['csvtk', 'concat', "END_VERSIONS"]
+    - path: braseqtb/braseqtb-runs/ariba-card/merged-results/logs/card-summary/nf-merged-results.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/braseqtb-runs/ariba-card/merged-results/logs/card-summary/versions.yml
+      md5sum: 6551889c4545016b96a75751d9efdb38
+    - path: braseqtb/braseqtb-runs/ariba-card/nf-reports/ariba-dag.dot
+      contains: ['aribadag', 'ARIBA', 'versions']
+    - path: braseqtb/braseqtb-runs/ariba-card/nf-reports/ariba-report.html
+      contains: ['html', 'Nextflow', 'Report']
+    - path: braseqtb/braseqtb-runs/ariba-card/nf-reports/ariba-timeline.html
+      contains: ['html', 'Nextflow', 'timeline']
+    - path: braseqtb/braseqtb-runs/ariba-card/nf-reports/ariba-trace.txt
+      contains: ['task_id']
+    - path: braseqtb/SRR2838702/tools/ariba/card/SRR2838702-report.tsv
+      contains: ["ariba_ref_name", "reads", "resistance", "Clostridioides"]
+    - path: braseqtb/SRR2838702/tools/ariba/card/SRR2838702-summary.csv
+      contains: ["name", "novel_var", "Clostridioides"]
+    - path: braseqtb/SRR2838702/tools/ariba/card/assembled_genes.fa.gz
+    - path: braseqtb/SRR2838702/tools/ariba/card/assembled_seqs.fa.gz
+    - path: braseqtb/SRR2838702/tools/ariba/card/assemblies.fa.gz
+    - path: braseqtb/SRR2838702/tools/ariba/card/debug.report.tsv
+      contains: ["ariba_ref_name", "reads", "resistance"]
+    - path: braseqtb/SRR2838702/tools/ariba/card/log.clusters.gz
+    - path: braseqtb/SRR2838702/tools/ariba/card/logs/nf-ariba.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/SRR2838702/tools/ariba/card/logs/nf-ariba.err
+      contains: ["filtering"]
+    - path: braseqtb/SRR2838702/tools/ariba/card/logs/nf-ariba.log
+      contains: ["card", "Making", "done!", "filtering"]
+    - path: braseqtb/SRR2838702/tools/ariba/card/logs/nf-ariba.out
+      contains: ["card", "Making", "done!"]
+    - path: braseqtb/SRR2838702/tools/ariba/card/logs/nf-ariba.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/SRR2838702/tools/ariba/card/logs/nf-ariba.sh
+      contains: ['ariba', 'END_VERSIONS']
+    - path: braseqtb/SRR2838702/tools/ariba/card/logs/nf-ariba.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/SRR2838702/tools/ariba/card/logs/versions.yml
+      md5sum: 033ed5d08925ede510a221561b454bbc
+    - path: braseqtb/SRR2838702/tools/ariba/card/version_info.txt
+      contains: ["ARIBA", "Python", "OK", "True"]

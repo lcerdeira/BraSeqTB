@@ -1,0 +1,46 @@
+- name: abricate-test
+  command: bash -c 'nextflow run ./subworkflows/local/abricate/test.nf -entry test_abricate --wf abricate -c nextflow.config ${braseqtb_ARGS}'
+  tags:
+    - abricate
+    - tools
+  files:
+    - path: braseqtb/braseqtb-runs/abricate-ncbi/merged-results/abricate.tsv
+      contains: ['FILE', 'NUM_FOUND']
+    - path: braseqtb/braseqtb-runs/abricate-ncbi/merged-results/logs/abricate-concat/nf-merged-results.begin
+    - path: braseqtb/braseqtb-runs/abricate-ncbi/merged-results/logs/abricate-concat/nf-merged-results.err
+    - path: braseqtb/braseqtb-runs/abricate-ncbi/merged-results/logs/abricate-concat/nf-merged-results.log
+    - path: braseqtb/braseqtb-runs/abricate-ncbi/merged-results/logs/abricate-concat/nf-merged-results.out
+    - path: braseqtb/braseqtb-runs/abricate-ncbi/merged-results/logs/abricate-concat/nf-merged-results.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/braseqtb-runs/abricate-ncbi/merged-results/logs/abricate-concat/nf-merged-results.sh
+      contains: ['abricate', 'END_VERSIONS']
+    - path: braseqtb/braseqtb-runs/abricate-ncbi/merged-results/logs/abricate-concat/nf-merged-results.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/braseqtb-runs/abricate-ncbi/merged-results/logs/abricate-concat/versions.yml
+      contains: ['abricate']
+    - path: braseqtb/braseqtb-runs/abricate-ncbi/nf-reports/abricate-dag.dot
+      contains: ['abricatedag', 'ABRICATE', 'versions']
+    - path: braseqtb/braseqtb-runs/abricate-ncbi/nf-reports/abricate-report.html
+      contains: ['html', 'Nextflow', 'Report']
+    - path: braseqtb/braseqtb-runs/abricate-ncbi/nf-reports/abricate-timeline.html
+      contains: ['html', 'Nextflow', 'timeline']
+    - path: braseqtb/braseqtb-runs/abricate-ncbi/nf-reports/abricate-trace.txt
+      contains: ['task_id']
+    - path: braseqtb/GCF_000292685/tools/abricate/ncbi/GCF_000292685.txt
+      contains: ['FILE', 'COVERAGE', 'RESISTANCE']
+    - path: braseqtb/GCF_000292685/tools/abricate/ncbi/logs/nf-abricate.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/GCF_000292685/tools/abricate/ncbi/logs/nf-abricate.err
+      contains: ["database", "genes", "Done"]
+    - path: braseqtb/GCF_000292685/tools/abricate/ncbi/logs/nf-abricate.log
+      contains: ["database", "genes", "Done"]
+    - path: braseqtb/GCF_000292685/tools/abricate/ncbi/logs/nf-abricate.out
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/GCF_000292685/tools/abricate/ncbi/logs/nf-abricate.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/GCF_000292685/tools/abricate/ncbi/logs/nf-abricate.sh
+      contains: ['abricate', 'END_VERSIONS']
+    - path: braseqtb/GCF_000292685/tools/abricate/ncbi/logs/nf-abricate.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/GCF_000292685/tools/abricate/ncbi/logs/versions.yml
+      md5sum: 883068280465b2816cfae24f8ba0ec3c

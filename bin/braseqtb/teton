@@ -1,0 +1,3 @@
+#! /bin/bash
+
+braseqtb --wf teton "${@:1}"

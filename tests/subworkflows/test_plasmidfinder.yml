@@ -1,0 +1,8 @@
+- name: plasmidfinder-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf plasmidfinder -c nextflow.config --help > plasmidfinder-help.txt'
+  tags:
+    - braseqtb_help
+    - plasmidfinder
+  files:
+    - path: plasmidfinder-help.txt
+      contains: ['plasmidfinder', 'braseqtb', 'version', 'dependencies']

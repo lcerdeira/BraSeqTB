@@ -1,0 +1,9 @@
+- name: spatyper-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf spatyper -c nextflow.config --help > spatyper-help.txt'
+  tags:
+    - braseqtb
+    - braseqtb_help
+    - spatyper
+  files:
+    - path: spatyper-help.txt
+      contains: ['spatyper', 'braseqtb', 'version', 'dependencies']

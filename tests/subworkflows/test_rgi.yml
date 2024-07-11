@@ -1,0 +1,8 @@
+- name: rgi-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf rgi -c nextflow.config --help > rgi-help.txt'
+  tags:
+    - braseqtb_help
+    - rgi
+  files:
+    - path: rgi-help.txt
+      contains: ['rgi', 'braseqtb', 'version', 'dependencies']

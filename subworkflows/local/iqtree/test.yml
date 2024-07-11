@@ -1,0 +1,50 @@
+- name: iqtree-test
+  command: bash -c 'nextflow run ./subworkflows/local/iqtree/test.nf -entry test_iqtree --wf iqtree -c nextflow.config ${braseqtb_ARGS}'
+  tags:
+    - iqtree
+    - braseqtb-tools
+  files:
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/genome.aln.gz
+      md5sum: 7e0c99a9803be09adbc644f533db593a
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/logs/nf-iqtree.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/logs/nf-iqtree.err
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/logs/nf-iqtree.log
+      contains: ['IQ-TREE', 'Ultrafast', 'Date']
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/logs/nf-iqtree.out
+      contains: ['IQ-TREE', 'Ultrafast', 'Date']
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/logs/nf-iqtree.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/logs/nf-iqtree.sh
+      contains: ['iqtree', 'END_VERSIONS']
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/logs/nf-iqtree.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/logs/test.log
+      contains: ['IQ-TREE', 'Ultrafast', 'Date']
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/logs/versions.yml
+      md5sum: 1ec296e7de2f7cae81775f63cd010b54
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/test.alninfo
+      md5sum: 4e3bfd442dad9d4b8469e03039cadb4c
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/test.bionj
+      contains: ['GCF_000292685']
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/test.ckp.gz
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/test.contree
+      contains: ['GCF_902713755']
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/test.iqtree
+      contains: ['REFERENCES', 'GCF_000292685', 'Total']
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/test.mldist
+      contains: ['GCF_000292685', 'GCF_002849995', 'GCF_000300075']
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/test.splits.nex
+      md5sum: a257e91b7d51e5ce30e9c052428ce147
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/test.treefile
+      contains: ['GCF_902713755']
+    - path: braseqtb/braseqtb-runs/iqtree/iqtree/test.ufboot
+      contains: ['GCF_000292685', 'GCF_002849995', 'GCF_000300075']
+    - path: braseqtb/braseqtb-runs/iqtree/nf-reports/iqtree-dag.dot
+      contains: ['iqtreedag', 'IQTREE', 'versions']
+    - path: braseqtb/braseqtb-runs/iqtree/nf-reports/iqtree-report.html
+      contains: ['html', 'Nextflow', 'Report']
+    - path: braseqtb/braseqtb-runs/iqtree/nf-reports/iqtree-timeline.html
+      contains: ['html', 'Nextflow', 'timeline']
+    - path: braseqtb/braseqtb-runs/iqtree/nf-reports/iqtree-trace.txt
+      contains: ['task_id']

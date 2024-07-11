@@ -1,0 +1,128 @@
+#!/usr/bin/env bash
+VERSION=3.0.1
+CONDA_ENV=$(which braseqtb | sed 's=bin/braseqtb==')
+braseqtb_NF="${CONDA_ENV}/share/braseqtb-${VERSION}" 
+
+# If no user input, print usage
+if [[ $# == 0 ]]; then
+    echo "braseqtb - v${VERSION}"
+    echo ""
+    echo "Available Commands"
+    echo "braseqtb - Execute the braseqtb Nextflow pipeline"
+    echo ""
+    echo "braseqtb citations - Print citation for datasets, tools and braseqtb"
+    echo ""
+    echo "braseqtb datasets - Download optional datasets to supplement your analyses with braseqtb"
+    echo ""
+    echo "braseqtb download - Build braseqtb Conda, Docker,and or Singularity environments "
+    echo ""
+    echo "braseqtb prepare - Create a 'file of filenames' for input FASTQ files"
+    echo ""
+    echo "braseqtb search - Query Taxon ID or Study Accession against ENA for input accessions"
+    echo ""
+    echo "braseqtb summary - Generate a summary table from the braseqtb results"
+    echo ""
+    echo "braseqtb atb-formatter - Restructure All-the-Bacteria assemblies to allow usage with braseqtb Tools"
+    echo ""
+    echo "braseqtb --citation - Print the braseqtb citation"
+    echo "braseqtb --version - Print the braseqtb version"
+    echo ""
+    echo "Print Usages:"
+    echo "braseqtb --help"
+    echo "braseqtb citations --help"
+    echo "braseqtb download --help"
+    echo "braseqtb prepare --help"
+    echo "braseqtb search --help"
+    echo "braseqtb summary --help"
+    echo ""
+    echo "Example Commands"
+    echo "braseqtb --R1 SAMPLE_R1.fastq.gz --R2 SAMPLE_R2.fastq.gz --sample SAMPLE"
+    echo "braseqtb --wf pangenome --braseqtb /path/to/braseqtb/results"
+    echo ""
+    echo "braseqtb download --use_defaults"
+    echo ""
+    echo "braseqtb prepare --path my-fastq-dir > my-fastqs.txt"
+    echo "braseqtb --fastqs my-fastqs.txt"
+    echo ""
+    echo "braseqtb search --query PRJNA480016 --limit 20"
+    echo "braseqtb --accessions ena-accessions.txt"
+    echo ""
+    echo "braseqtb summary --braseqtb /path/to/braseqtb/results"
+    echo ""
+    exit
+fi
+
+if [[ "$1" == "prepare" ]]; then
+    braseqtb-prepare "${@:2}"
+elif [[ "$1" == "search" ]]; then
+    braseqtb-search "${@:2}"
+elif [[ "$1" == "datasets" ]]; then
+    braseqtb-datasets --braseqtb-path "${braseqtb_NF}" "${@:2}"
+elif [[ "$1" == "download" ]]; then
+    braseqtb-download --braseqtb-path "${braseqtb_NF}" "${@:2}"
+elif [[ "$1" == "citation" ]] || [[ "$1" == "--citation" ]]; then
+    echo "Petit III RA, Read TD, braseqtb: a flexible pipeline for complete analysis of bacterial "
+    echo "genomes. mSystems. 5 (2020), https://doi.org/10.1128/mSystems.00190-20"
+elif [[ "$1" == "citations" ]]; then
+    braseqtb-citations --braseqtb-path "${braseqtb_NF}" "${@:2}"
+elif [[ "$1" == "summary" ]]; then
+    braseqtb-summary "${@:2}"
+elif [[ "$1" == "atb-formatter" ]]; then
+    braseqtb-atb-formatter "${@:2}"
+elif [[ "$1" == "version" ]] || [[ "$1" == "--version" ]]; then
+    echo "braseqtb ${VERSION}"
+else
+    # Check if Conda environments need to be built
+    PREBUILD=1
+    BUILD_TYPE="conda"
+    if [[ "$*" == *"singularity"* ]] || [[ "$*" == *"slurm"* ]] || [[ "$*" == *"sge"* ]] || [[ "$*" == *"arcc"* ]]; then
+        BUILD_TYPE="singularity"
+    elif  [[ "$*" == *"docker"* ]] || [[ "$*" == *"arm"* ]]; then
+        BUILD_TYPE="docker"
+    fi
+
+    # If these are used, skip prebuild
+    CHECKS=("help" "help_all" "nfconfig" "list_wfs") 
+    for check in "${CHECKS[@]}"; do
+        if [[ "$*" == *"${check}"* ]]; then
+            PREBUILD=0
+        fi
+    done
+
+    if [[ "${PREBUILD}" -eq 1 ]]; then
+        BUILD_OPTS=""
+        if [[ "$*" == *"arcc"* ]]; then
+            # Get singularity cache from config
+            BUILD_OPTS=$(grep "singularity_cache =" ${braseqtb_NF}/conf/profiles/arcc.config | sed "s/^.* = //;s/'//g;s/^/--singularity_cache /")
+        fi
+
+        # Build conda/docker/singularity envs, rebuild out of sync envs, skip existing
+        braseqtb-download --braseqtb-path "${braseqtb_NF}" --envtype "${BUILD_TYPE}" ${BUILD_OPTS} "${@:1}"
+    fi
+
+    # Create custom work dir
+    WORK_DIR=""
+    WORK_ARG=""
+    CAN_CLEAN_UP=1
+    if echo "$*" | sed -r 's/ ([-]+)/\n\1/g' | grep "^-w \|-work-dir" > /dev/null; then
+        # User specified a work directory
+        CAN_CLEAN_UP=0
+    else
+        # User did not specify a work directory, we'll use custom one based on workflow name
+        WORK_DIR="$(pwd)/work/${WF}"
+        WORK_ARG="-w ${WORK_DIR}"
+    fi
+
+    # Execute braseqtb Nextflow pipeline
+    OPTS="${WORK_ARG}"
+    if nextflow run "${braseqtb_NF}/main.nf" ${OPTS} "${@:1}"; then
+        # braseqtb finished successfully
+        if [[ "$*" == *"--cleanup_workdir"* ]] && [[ "${CAN_CLEAN_UP}" -eq 1 ]]; then
+            # user asked for work dir to be cleaned up
+            echo "braseqtb finished successfully! Found '--cleanup_workdir' removing '${WORK_DIR}'"
+            rm -rf "${WORK_DIR}"
+        fi
+    else
+        exit $?
+    fi
+fi

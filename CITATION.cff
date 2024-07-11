@@ -1,0 +1,16 @@
+cff-version: 1.0.0
+message: "If you use BraSeqTB, please cite it as below."
+authors:
+- family-names: "Cerdeira"
+  given-names: "Louise T. "
+  orcid: ""
+- family-names: "X"
+  given-names: "Naila"
+  orcid: ""
+- family-names: "Guimarães"
+  given-names: "Ana Márcia."
+  orcid: ""
+title: "BraSeqTB: Brazillian pipeline for the detection of antimicrobial resistance in Mycobacterium tuberculosis."
+doi: 
+url: "https://github.com/braseqtb/braseqtb"
+version: 1.0.0

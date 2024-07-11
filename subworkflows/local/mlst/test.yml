@@ -1,0 +1,46 @@
+- name: mlst-test
+  command: bash -c 'nextflow run ./subworkflows/local/mlst/test.nf -entry test_mlst --wf mlst -c nextflow.config ${braseqtb_ARGS}'
+  tags:
+    - mlst
+    - braseqtb-tools
+  files:
+    - path: braseqtb/braseqtb-runs/mlst/merged-results/logs/mlst-concat/nf-merged-results.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/braseqtb-runs/mlst/merged-results/logs/mlst-concat/nf-merged-results.err
+    - path: braseqtb/braseqtb-runs/mlst/merged-results/logs/mlst-concat/nf-merged-results.log
+    - path: braseqtb/braseqtb-runs/mlst/merged-results/logs/mlst-concat/nf-merged-results.out
+    - path: braseqtb/braseqtb-runs/mlst/merged-results/logs/mlst-concat/nf-merged-results.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/braseqtb-runs/mlst/merged-results/logs/mlst-concat/nf-merged-results.sh
+      contains: ['csvtk', 'END_VERSIONS']
+    - path: braseqtb/braseqtb-runs/mlst/merged-results/logs/mlst-concat/nf-merged-results.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/braseqtb-runs/mlst/merged-results/logs/mlst-concat/versions.yml
+      md5sum: 5909dd65afdda0a7f9db758c32aa0ae0
+    - path: braseqtb/braseqtb-runs/mlst/merged-results/mlst.tsv
+      md5sum: 67e1b29068b46c7ccd845ec36d41da89
+    - path: braseqtb/braseqtb-runs/mlst/nf-reports/mlst-dag.dot
+      contains: ['mlstdag', 'MLST', 'versions']
+    - path: braseqtb/braseqtb-runs/mlst/nf-reports/mlst-report.html
+      contains: ['html', 'Nextflow', 'Report']
+    - path: braseqtb/braseqtb-runs/mlst/nf-reports/mlst-timeline.html
+      contains: ['html', 'Nextflow', 'timeline']
+    - path: braseqtb/braseqtb-runs/mlst/nf-reports/mlst-trace.txt
+      contains: ['task_id']
+    - path: braseqtb/GCF_000017085/tools/mlst/GCF_000017085.tsv
+      md5sum: 67e1b29068b46c7ccd845ec36d41da89
+    - path: braseqtb/GCF_000017085/tools/mlst/logs/nf-mlst.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/GCF_000017085/tools/mlst/logs/nf-mlst.err
+      contains: ['Found', 'Excluding', 'saureus', 'Done']
+    - path: braseqtb/GCF_000017085/tools/mlst/logs/nf-mlst.log
+      contains: ['Found', 'Excluding', 'saureus', 'Done']
+    - path: braseqtb/GCF_000017085/tools/mlst/logs/nf-mlst.out
+    - path: braseqtb/GCF_000017085/tools/mlst/logs/nf-mlst.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/GCF_000017085/tools/mlst/logs/nf-mlst.sh
+      contains: ['mlst', 'END_VERSIONS']
+    - path: braseqtb/GCF_000017085/tools/mlst/logs/nf-mlst.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/GCF_000017085/tools/mlst/logs/versions.yml
+      md5sum: 6cdff5356823d7423f727b937f2685dd

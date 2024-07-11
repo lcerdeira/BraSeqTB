@@ -1,0 +1,64 @@
+- name: scrubber-test-pe
+  command: bash -c 'nextflow run ./subworkflows/local/scrubber/test.nf -entry test_scrubber_pe --wf scrubber -c nextflow.config ${braseqtb_ARGS}'
+  tags:
+    - scrubber
+    - braseqtb-tools
+  files:
+    - path: braseqtb/braseqtb-runs/scrubber/nf-reports/scrubber-dag.dot
+      contains: ['scrubberdag', 'scrubber', 'versions']
+    - path: braseqtb/braseqtb-runs/scrubber/nf-reports/scrubber-report.html
+      contains: ['html', 'Nextflow', 'Report']
+    - path: braseqtb/braseqtb-runs/scrubber/nf-reports/scrubber-timeline.html
+      contains: ['html', 'Nextflow', 'timeline']
+    - path: braseqtb/braseqtb-runs/scrubber/nf-reports/scrubber-trace.txt
+      contains: ['task_id']
+    - path: braseqtb/SRR2838702/tools/scrubber/SRR2838702_R1.scrubbed.fastq.gz
+    - path: braseqtb/SRR2838702/tools/scrubber/SRR2838702_R2.scrubbed.fastq.gz
+    - path: braseqtb/SRR2838702/tools/scrubber/logs/nf-scrubber.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/SRR2838702/tools/scrubber/logs/nf-scrubber.err
+      contains: ['Loading', 'classified', 'unclassified']
+    - path: braseqtb/SRR2838702/tools/scrubber/logs/nf-scrubber.log
+      contains: ['Loading', 'classified', 'unclassified']
+    - path: braseqtb/SRR2838702/tools/scrubber/logs/nf-scrubber.out
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/SRR2838702/tools/scrubber/logs/nf-scrubber.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/SRR2838702/tools/scrubber/logs/nf-scrubber.sh
+      contains: ['scrub', 'END_VERSIONS']
+    - path: braseqtb/SRR2838702/tools/scrubber/logs/nf-scrubber.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/SRR2838702/tools/scrubber/logs/versions.yml
+      md5sum: 9223d0f9690923042b457b010e88d45c
+
+- name: scrubber-test-se
+  command: bash -c 'nextflow run ./subworkflows/local/scrubber/test.nf -entry test_scrubber_se --wf scrubber -c nextflow.config ${braseqtb_ARGS}'
+  tags:
+    - scrubber
+    - braseqtb-tools
+  files:
+    - path: braseqtb/braseqtb-runs/scrubber/nf-reports/scrubber-dag.dot
+      contains: ['scrubberdag', 'scrubber', 'versions']
+    - path: braseqtb/braseqtb-runs/scrubber/nf-reports/scrubber-report.html
+      contains: ['html', 'Nextflow', 'Report']
+    - path: braseqtb/braseqtb-runs/scrubber/nf-reports/scrubber-timeline.html
+      contains: ['html', 'Nextflow', 'timeline']
+    - path: braseqtb/braseqtb-runs/scrubber/nf-reports/scrubber-trace.txt
+      contains: ['task_id']
+    - path: braseqtb/SRR2838702/tools/scrubber/SRR2838702.scrubbed.fastq.gz
+    - path: braseqtb/SRR2838702/tools/scrubber/logs/nf-scrubber.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/SRR2838702/tools/scrubber/logs/nf-scrubber.err
+      contains: ['Loading', 'classified', 'unclassified']
+    - path: braseqtb/SRR2838702/tools/scrubber/logs/nf-scrubber.log
+      contains: ['Loading', 'classified', 'unclassified']
+    - path: braseqtb/SRR2838702/tools/scrubber/logs/nf-scrubber.out
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/SRR2838702/tools/scrubber/logs/nf-scrubber.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/SRR2838702/tools/scrubber/logs/nf-scrubber.sh
+      contains: ['scrub', 'END_VERSIONS']
+    - path: braseqtb/SRR2838702/tools/scrubber/logs/nf-scrubber.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/SRR2838702/tools/scrubber/logs/versions.yml
+      md5sum: 2feea5bb3fda5f9fe18d461b430ac276

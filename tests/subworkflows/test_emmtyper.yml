@@ -1,0 +1,9 @@
+- name: emmtyper-braseqtb_help
+  command: bash -c 'nextflow run ./main.nf --wf emmtyper -c nextflow.config --help > emmtyper-help.txt'
+  tags:
+    - braseqtb
+    - braseqtb_help
+    - emmtyper
+  files:
+    - path: emmtyper-help.txt
+      contains: ['emmtyper', 'braseqtb', 'version', 'dependencies']

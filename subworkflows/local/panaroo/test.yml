@@ -1,0 +1,69 @@
+- name: panaroo-test
+  command: bash -c 'nextflow run ./subworkflows/local/panaroo/test.nf -entry test_panaroo --wf panaroo -c nextflow.config ${braseqtb_ARGS}'
+  tags:
+    - panaroo
+    - braseqtb-tools
+  files:
+    - path: braseqtb/braseqtb-runs/panaroo/nf-reports/panaroo-dag.dot
+      contains: ['panaroodag', 'PANAROO', 'versions']
+    - path: braseqtb/braseqtb-runs/panaroo/nf-reports/panaroo-report.html
+      contains: ['html', 'Nextflow', 'Report']
+    - path: braseqtb/braseqtb-runs/panaroo/nf-reports/panaroo-timeline.html
+      contains: ['html', 'Nextflow', 'timeline']
+    - path: braseqtb/braseqtb-runs/panaroo/nf-reports/panaroo-trace.txt
+      contains: ['task_id']
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/aligned_gene_sequences/aceE.aln.fas.gz
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/aligned_gene_sequences/aceF.aln.fas.gz
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/aligned_gene_sequences/acpP.aln.fas.gz
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/aligned_gene_sequences/ahpC.aln.fas.gz
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/aligned_gene_sequences/alaS.aln.fas.gz
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/alignment_entropy.csv
+      contains: ["aln", "0", "group"]
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/combined_DNA_CDS.fasta
+      md5sum: 92bd4f6b9c84c84c0989d77d2558b7d1
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/combined_protein_CDS.fasta
+      md5sum: 7a5636c4f2abc190f5dd4dfbb1da7034
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/combined_protein_cdhit_out.txt
+      md5sum: 2164b81606712b53af2198b4d50eed08
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/combined_protein_cdhit_out.txt.clstr
+      md5sum: aaa9fc2b797c932b6d9ff2df640113f1
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/core-genome.aln.gz
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/core_alignment_filtered_header.embl
+      contains: ["Genome", "feature", "Sequence"]
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/core_alignment_header.embl
+      contains: ["Genome", "feature", "Sequence"]
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/core_gene_alignment.aln.gz
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/core_gene_alignment_filtered.aln
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/final_graph.gml
+      contains: ["lengths", "graph", "node"]
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/gene_data.csv
+      md5sum: b0c9c4b23b931887d969bb8568467155
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/gene_presence_absence.Rtab
+      md5sum: ef50adf139968f1cf69cf16e249108d5
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/gene_presence_absence.csv
+      contains: ["rpoC_2", "Gene", "capB"]
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/gene_presence_absence_roary.csv
+      contains: ["rpoC_2", "Gene", "capB", "Accessory"]
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/logs/nf-panaroo.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/logs/nf-panaroo.err
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/logs/nf-panaroo.log
+      contains: ["gff3", "completed", "Processing", "core"]
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/logs/nf-panaroo.out
+      contains: ["gff3", "completed", "Processing", "core"]
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/logs/nf-panaroo.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/logs/nf-panaroo.sh
+      md5sum: b965e066bffeab7d5d721ced5d982963
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/logs/nf-panaroo.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/logs/versions.yml
+      md5sum: 52678674115cb226f088d2cde569b8c9
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/pan_genome_reference.fa
+      contains: ["dnaK", "nuoN", "glyQ"]
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/pre_filt_graph.gml
+      contains: ["lengths", "graph", "node"]
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/struct_presence_absence.Rtab
+      md5sum: 70cd01aa2c35ad1db20fe0a9ecb543e6
+    - path: braseqtb/braseqtb-runs/panaroo/panaroo/summary_statistics.txt
+      md5sum: 9c73c416e1758bea06c67b4ec9fd0720

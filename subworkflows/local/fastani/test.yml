@@ -1,0 +1,33 @@
+- name: fastani-test
+  command: bash -c 'nextflow run ./subworkflows/local/fastani/test.nf -entry test_fastani --wf fastani -c nextflow.config ${braseqtb_ARGS}'
+  tags:
+    - fastani
+    - braseqtb-tools
+  files:
+    - path: braseqtb/braseqtb-runs/fastani/fastani/GCA_000027305.tsv
+      contains: ['query', 'GCF_900478275', 'GCA_000027305']
+    - path: braseqtb/braseqtb-runs/fastani/fastani/GCF_900478275.tsv
+      contains: ['query', 'GCF_900478275', 'GCA_000027305']
+    - path: braseqtb/braseqtb-runs/fastani/merged-results/fastani.tsv
+      contains: ['query', 'GCF_900478275', 'GCA_000027305']
+    - path: braseqtb/braseqtb-runs/fastani/merged-results/logs/fastani-concat/nf-merged-results.begin
+      md5sum: d41d8cd98f00b204e9800998ecf8427e
+    - path: braseqtb/braseqtb-runs/fastani/merged-results/logs/fastani-concat/nf-merged-results.err
+    - path: braseqtb/braseqtb-runs/fastani/merged-results/logs/fastani-concat/nf-merged-results.log
+    - path: braseqtb/braseqtb-runs/fastani/merged-results/logs/fastani-concat/nf-merged-results.out
+    - path: braseqtb/braseqtb-runs/fastani/merged-results/logs/fastani-concat/nf-merged-results.run
+      contains: ['NEXTFLOW TASK', '$NXF_ENTRY']
+    - path: braseqtb/braseqtb-runs/fastani/merged-results/logs/fastani-concat/nf-merged-results.sh
+      contains: ['csvtk', 'END_VERSIONS']
+    - path: braseqtb/braseqtb-runs/fastani/merged-results/logs/fastani-concat/nf-merged-results.trace
+      contains: ['nextflow.trace']
+    - path: braseqtb/braseqtb-runs/fastani/merged-results/logs/fastani-concat/versions.yml
+      contains: ['csvtk']
+    - path: braseqtb/braseqtb-runs/fastani/nf-reports/fastani-dag.dot
+      contains: ['fastanidag', 'FASTANI', 'versions']
+    - path: braseqtb/braseqtb-runs/fastani/nf-reports/fastani-report.html
+      contains: ['html', 'Nextflow', 'Report']
+    - path: braseqtb/braseqtb-runs/fastani/nf-reports/fastani-timeline.html
+      contains: ['html', 'Nextflow', 'timeline']
+    - path: braseqtb/braseqtb-runs/fastani/nf-reports/fastani-trace.txt
+      contains: ['task_id']
