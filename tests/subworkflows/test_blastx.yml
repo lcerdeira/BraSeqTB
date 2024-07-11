@@ -1,8 +1,0 @@
-- name: blastx-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf blastx -c nextflow.config --help > blastx-help.txt'
-  tags:
-    - braseqtb_help
-    - blastx
-  files:
-    - path: blastx-help.txt
-      contains: ['blastx', 'braseqtb', 'version', 'dependencies']

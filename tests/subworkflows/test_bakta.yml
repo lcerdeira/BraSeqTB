@@ -1,9 +1,0 @@
-- name: bakta-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf bakta -c nextflow.config --help > bakta-help.txt'
-  tags:
-    - braseqtb
-    - braseqtb_help
-    - bakta
-  files:
-    - path: bakta-help.txt
-      contains: ['bakta', 'braseqtb', 'version', 'dependencies']

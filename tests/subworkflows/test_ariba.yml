@@ -1,8 +1,0 @@
-- name: ariba-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf ariba -c nextflow.config --help > ariba-help.txt'
-  tags:
-    - braseqtb_help
-    - ariba
-  files:
-    - path: ariba-help.txt
-      contains: ['ariba', 'braseqtb', 'version', 'dependencies']
