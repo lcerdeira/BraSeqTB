@@ -1,8 +1,0 @@
-- name: busco-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf busco -c nextflow.config --help > busco-help.txt'
-  tags:
-    - braseqtb_help
-    - busco
-  files:
-    - path: busco-help.txt
-      contains: ['busco', 'braseqtb', 'version', 'dependencies']

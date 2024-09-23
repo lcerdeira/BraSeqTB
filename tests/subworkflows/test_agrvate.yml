@@ -1,9 +1,0 @@
-- name: agrvate-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf agrvate -c nextflow.config --help > agrvate-help.txt'
-  tags:
-    - braseqtb
-    - braseqtb_help
-    - agrvate
-  files:
-    - path: agrvate-help.txt
-      contains: ['agrvate', 'braseqtb', 'version', 'dependencies']

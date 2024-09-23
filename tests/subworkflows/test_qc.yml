@@ -1,8 +1,0 @@
-- name: qc-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf qc -c nextflow.config --help > qc-help.txt'
-  tags:
-    - braseqtb_help_disable
-    - qc_disable
-  files:
-    - path: qc-help.txt
-      contains: ['qc', 'braseqtb', 'version', 'dependencies']

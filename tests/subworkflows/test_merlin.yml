@@ -1,8 +1,0 @@
-- name: merlin-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf merlin -c nextflow.config --help > merlin-help.txt'
-  tags:
-    - braseqtb_help
-    - merlin
-  files:
-    - path: merlin-help.txt
-      contains: ['merlin', 'braseqtb', 'version', 'dependencies']

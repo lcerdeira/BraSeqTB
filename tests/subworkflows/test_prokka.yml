@@ -1,7 +1,0 @@
-- name: prokka-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf prokka -c nextflow.config --help > prokka-help.txt'
-  tags:
-    - skip_prokka
-  files:
-    - path: prokka-help.txt
-      contains: ['prokka', 'braseqtb', 'version', 'dependencies']

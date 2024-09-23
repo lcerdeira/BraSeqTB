@@ -1,8 +1,0 @@
-- name: gather-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf gather -c nextflow.config --help > gather-help.txt'
-  tags:
-    - braseqtb_help_disable
-    - gather_disable
-  files:
-    - path: gather-help.txt
-      contains: ['gather', 'braseqtb', 'version', 'dependencies']

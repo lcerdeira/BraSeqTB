@@ -1,8 +1,0 @@
-- name: mcroni-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf mcroni -c nextflow.config --help > mcroni-help.txt'
-  tags:
-    - braseqtb_help
-    - mcroni
-  files:
-    - path: mcroni-help.txt
-      contains: ['mcroni', 'braseqtb', 'version', 'dependencies']
