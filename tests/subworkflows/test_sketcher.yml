@@ -1,8 +1,0 @@
-- name: sketcher-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf sketcher -c nextflow.config --help > sketcher-help.txt'
-  tags:
-    - braseqtb_help_disable
-    - sketcher_disable
-  files:
-    - path: sketcher-help.txt
-      contains: ['sketcher', 'braseqtb', 'version', 'dependencies']

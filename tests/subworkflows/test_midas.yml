@@ -1,8 +1,0 @@
-- name: midas-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf midas -c nextflow.config --help > midas-help.txt'
-  tags:
-    - braseqtb_help
-    - midas
-  files:
-    - path: midas-help.txt
-      contains: ['midas', 'braseqtb', 'version', 'dependencies']

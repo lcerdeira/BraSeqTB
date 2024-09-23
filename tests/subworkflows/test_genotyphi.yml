@@ -1,8 +1,0 @@
-- name: genotyphi-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf genotyphi -c nextflow.config --help > genotyphi-help.txt'
-  tags:
-    - braseqtb_help
-    - genotyphi
-  files:
-    - path: genotyphi-help.txt
-      contains: ['genotyphi', 'braseqtb', 'version', 'dependencies']

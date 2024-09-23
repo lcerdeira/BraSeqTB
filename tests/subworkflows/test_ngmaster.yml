@@ -1,9 +1,0 @@
-- name: ngmaster-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf ngmaster -c nextflow.config --help > ngmaster-help.txt'
-  tags:
-    - braseqtb
-    - braseqtb_help
-    - ngmaster
-  files:
-    - path: ngmaster-help.txt
-      contains: ['ngmaster', 'braseqtb', 'version', 'dependencies']

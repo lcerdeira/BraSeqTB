@@ -1,8 +1,0 @@
-- name: legsta-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf legsta -c nextflow.config --help > legsta-help.txt'
-  tags:
-    - braseqtb_help
-    - legsta
-  files:
-    - path: legsta-help.txt
-      contains: ['legsta', 'braseqtb', 'version', 'dependencies']

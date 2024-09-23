@@ -1,9 +1,0 @@
-- name: meningotype-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf meningotype -c nextflow.config --help > meningotype-help.txt'
-  tags:
-    - braseqtb
-    - braseqtb_help
-    - meningotype
-  files:
-    - path: meningotype-help.txt
-      contains: ['meningotype', 'braseqtb', 'version', 'dependencies']

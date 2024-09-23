@@ -1,9 +1,0 @@
-- name: tbprofiler-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf tbprofiler -c nextflow.config --help > tbprofiler-help.txt'
-  tags:
-    - braseqtb
-    - braseqtb_help
-    - tbprofiler
-  files:
-    - path: tbprofiler-help.txt
-      contains: ['tbprofiler', 'braseqtb', 'version', 'dependencies']

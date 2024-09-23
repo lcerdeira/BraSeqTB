@@ -1,8 +1,0 @@
-- name: tblastx-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf tblastx -c nextflow.config --help > tblastx-help.txt'
-  tags:
-    - braseqtb_help
-    - tblastx
-  files:
-    - path: tblastx-help.txt
-      contains: ['tblastx', 'braseqtb', 'version', 'dependencies']

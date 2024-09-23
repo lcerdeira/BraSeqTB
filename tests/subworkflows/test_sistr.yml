@@ -1,8 +1,0 @@
-- name: sistr-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf sistr -c nextflow.config --help > sistr-help.txt'
-  tags:
-    - braseqtb_help
-    - sistr
-  files:
-    - path: sistr-help.txt
-      contains: ['sistr', 'braseqtb', 'version', 'dependencies']

@@ -1,8 +1,0 @@
-- name: mobsuite-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf mobsuite -c nextflow.config --help > mobsuite-help.txt'
-  tags:
-    - braseqtb_help
-    - mobsuite
-  files:
-    - path: mobsuite-help.txt
-      contains: ['mobsuite', 'braseqtb', 'version', 'dependencies']

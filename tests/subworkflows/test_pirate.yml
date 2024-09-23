@@ -1,7 +1,0 @@
-- name: pirate-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf pirate -c nextflow.config --help > pirate-help.txt'
-  tags:
-    - skip_pirate
-  files:
-    - path: pirate-help.txt
-      contains: ['pirate', 'braseqtb', 'version', 'dependencies']

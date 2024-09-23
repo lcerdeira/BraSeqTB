@@ -1,9 +1,0 @@
-- name: staphopia-braseqtb_help
-  command: bash -c 'nextflow run ./main.nf --wf staphopia --help > staphopia-help.txt'
-  tags:
-    - braseqtb
-    - braseqtb_help
-    - staphopia
-  files:
-    - path: staphopia-help.txt
-      contains: ['staphopia', 'braseqtb', 'version', 'dependencies']
