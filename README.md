@@ -5,11 +5,6 @@
 ![License](https://img.shields.io/badge/license-GPLv3-blue)
 ![Last Commit](https://img.shields.io/github/last-commit/LaPAM-USP/braseqtb)
 ![Open Issues](https://img.shields.io/github/issues-raw/LaPAM-USP/braseqtb)
-![Repo Size](https://img.shields.io/github/repo-size/lapam/braseqtb)
-[![GitHub](https://img.shields.io/github/stars/LaPAM-USP/braseqtb)]
-[![GitHub](https://img.shields.io/github/forks/LaPAM-USP/braseqtb)]
-[![GitHub](https://img.shields.io/github/watchers/LaPAM-USP/braseqtb)]
-[![GitHub](https://img.shields.io/github/contributors/LaPAM-USP/braseqtb)]
 
 BraTB is a flexible pipeline for detecting antimicrobial resistance in Mycobacterium tuberculosis.
 
