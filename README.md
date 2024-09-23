@@ -1,15 +1,15 @@
 <img src='data/braseqtb-logo.png' width="150" height="90">    
 
-![Main Code Base](https://img.shields.io/github/languages/top/lapam/braseqtb)
+![Main Code Base](https://img.shields.io/github/languages/top/LaPAM-USP/braseqtb)
 ![Version](https://img.shields.io/badge/version-1.0-red)
 ![License](https://img.shields.io/badge/license-GPLv3-blue)
-![Last Commit](https://img.shields.io/github/last-commit/lapam/braseqtb)
-![Open Issues](https://img.shields.io/github/issues-raw/lapam/braseqtb)
+![Last Commit](https://img.shields.io/github/last-commit/LaPAM-USP/braseqtb)
+![Open Issues](https://img.shields.io/github/issues-raw/LaPAM-USP/braseqtb)
 ![Repo Size](https://img.shields.io/github/repo-size/lapam/braseqtb)
-[![GitHub](https://img.shields.io/github/stars/lapam/braseqtb)]
-[![GitHub](https://img.shields.io/github/forkslapam/braseqtb)]
-[![GitHub](https://img.shields.io/github/watchers/lapam/braseqtb)]
-[![GitHub](https://img.shields.io/github/contributors/lapam/braseqtb)]
+[![GitHub](https://img.shields.io/github/stars/LaPAM-USP/braseqtb)]
+[![GitHub](https://img.shields.io/github/forks/LaPAM-USP/braseqtb)]
+[![GitHub](https://img.shields.io/github/watchers/LaPAM-USP/braseqtb)]
+[![GitHub](https://img.shields.io/github/contributors/LaPAM-USP/braseqtb)]
 
 BraTB is a flexible pipeline for detecting antimicrobial resistance in Mycobacterium tuberculosis.
 
@@ -28,7 +28,7 @@ choose which samples to include for processing with a BraTB Tool.
 BraTB was inspired by [Staphopia](https://staphopia.github.io/) and MAGMA [MAGMA](https://github.com/TORCH-Consortium/MAGMA?tab=readme-ov-file#Prerequisites) 
 
 # Documentation
-Documentation for BraTB is available at https://braseqtb.github.io/.
+Documentation for BraTB is available [here](https://github.com/LaPAM-USP/BraSeqTB/wiki).
 
 # Quick Start
 ```
