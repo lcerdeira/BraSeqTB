@@ -1,8 +1,15 @@
-<!-- [![GitHub release (latest by date)](https://img.shields.io/github/v/release/braseqtb/braseqtb)](https://github.com/braseqtb/braseqtb/releases) -->
-<!-- [![Anaconda-Server Badge](https://anaconda.org/bioconda/braseqtb/badges/downloads.svg)](https://anaconda.org/bioconda/braseqtb) -->
-[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-908a85?logo=gitpod)](https://gitpod.io/#https://github.com/braseqtb/braseqtb)
 <img src='data/braseqtb-logo.png' width="150" height="90">    
 
+![Main Code Base](https://img.shields.io/github/languages/top/lapam/braseqtb)
+![Version](https://img.shields.io/badge/version-1.0-red)
+![License](https://img.shields.io/badge/license-GPLv3-blue)
+![Last Commit](https://img.shields.io/github/last-commit/lapam/braseqtb)
+![Open Issues](https://img.shields.io/github/issues-raw/lapam/braseqtb)
+![Repo Size](https://img.shields.io/github/repo-size/lapam/braseqtb)
+[![GitHub](https://img.shields.io/github/stars/lapam/braseqtb)]
+[![GitHub](https://img.shields.io/github/forkslapam/braseqtb)]
+[![GitHub](https://img.shields.io/github/watchers/lapam/braseqtb)]
+[![GitHub](https://img.shields.io/github/contributors/lapam/braseqtb)]
 
 BraTB is a flexible pipeline for detecting antimicrobial resistance in Mycobacterium tuberculosis.
 
@@ -28,28 +35,27 @@ Documentation for BraTB is available at https://braseqtb.github.io/.
 
 # Installation
 BraTB has **a lot** of tools built into its workflow. All these tools
-lead to numerous dependencies, and navigating dependencies can often become very frustrating. With this in mind, from the onset BraTB was developed to only
-include programs that could be installable using [Conda](https://conda.io/en/latest/).
+lead to numerous dependencies, and navigating dependencies can often become very frustrating. With this in mind, from the onset, BraTB was developed to include only programs that could be installable using [Conda](https://conda.io/en/latest/).
 
-Conda is an open source package management system and environment management system that runs
+Conda is an open-source package and environment management system that runs
 on Windows, macOS and Linux. In other words, it makes it super easy to get the tools you need
 installed! The [official Conda documentation](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
 is a good starting point for getting started with Conda. BraTB has been tested using the
 [Miniforge installer](https://github.com/conda-forge/miniforgel), but the
 [Anaconda installer](https://www.anaconda.com/distribution/) should work the same.
 
-Once you have Conda all set up, you are ready to create an environment for BraTB.
+Once you have Conda all setup; you are ready to create an environment for BraTB.
 
 ```
 # Recommended
-mamba create -n bratb -c conda-forge -c bioconda brastb
+mamba create -n bratb -c conda-forge -c bioconda bratb
 
 # or with standard conda
 conda create -n bratb -c conda-forge -c bioconda bratb
 ```
 
-After a few minutes you will have a new conda environment suitably named *BraTB*. To
-activate this environment, you will can use the following command:
+After a few minutes, you will have a new conda environment suitably named *BraTB*. To
+activate this environment, you will use the following command:
 
 ```
 conda activate bratb
@@ -61,7 +67,7 @@ And voilà, you are all set to get started processing your data!
 If you have used BraTB in your work, please be sure to cite any datasets or tools you may
 have used. [A list of each dataset/tool used by BraTB has been made available](https://braseqtb.github.io/latest/impact-and-outreach/acknowledgements/). 
 
-*If a citation needs to be updated please let me know!*
+*If a citation needs to be updated, please let me know!*
 
 # Acknowledgements
 BraTB is genuinely a case of *"standing upon the shoulders of giants"*. Nearly every component
@@ -82,11 +88,12 @@ Zenodo doi:
 * Louise Cerdeira
 * Twitter: [@louisecerdeira](https://twitter.com/louisecerdeira)
 
-<!-- * Naila
-* Twitter: [@](https://twitter.com/)
+* Naila Soler
+
+* Taiana Tainá
 
 * Ana Márcia Guimarães
-* Twitter: [@anaguimaraes](https://twitter.com/) -->
+* Twitter: [@anaguimaraes](https://twitter.com/anaguimaraes) -->
 
 ## Funding
 
