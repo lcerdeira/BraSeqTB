@@ -26,38 +26,6 @@ BraTB was inspired by [Staphopia](https://staphopia.github.io/) and MAGMA [MAGMA
 ### Documentation
 Documentation for BraTB is available [here](https://github.com/LaPAM-USP/BraSeqTB/wiki).
 
-### Quick Start
-```
-
-### Installation
-BraTB has **a lot** of tools built into its workflow. All these tools
-lead to numerous dependencies, and navigating dependencies can often become very frustrating. With this in mind, from the onset, BraTB was developed to include only programs that could be installable using [Conda](https://conda.io/en/latest/).
-
-Conda is an open-source package and environment management system that runs
-on Windows, macOS and Linux. In other words, it makes it super easy to get the tools you need
-installed! The [official Conda documentation](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
-is a good starting point for getting started with Conda. BraTB has been tested using the
-[Miniforge installer](https://github.com/conda-forge/miniforgel), but the
-[Anaconda installer](https://www.anaconda.com/distribution/) should work the same.
-
-Once you have Conda all setup; you are ready to create an environment for BraTB.
-
-```
-### Recommended
-mamba create -n bratb -c conda-forge -c bioconda bratb
-
-### or with standard conda
-
-conda create -n bratb -c conda-forge -c bioconda bratb
-```
-After a few minutes, you will have a new conda environment suitably named *BraTB*. To
-activate this environment, you will use the following command:
-```
-conda activate bratb
-```
-And voilà, you are all set to get started processing your data!
-```
-
 ### Please Cite Datasets and Tools
 If you have used BraTB in your work, please be sure to cite any datasets or tools you may
 have used. [A list of each dataset/tool used by BraTB has been made available](https://braseqtb.github.io/latest/impact-and-outreach/acknowledgements/). 
