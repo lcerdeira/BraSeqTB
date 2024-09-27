@@ -6,9 +6,10 @@
 ![Last Commit](https://img.shields.io/github/last-commit/LaPAM-USP/braseqtb)
 ![Open Issues](https://img.shields.io/github/issues-raw/LaPAM-USP/braseqtb)
 
+# About
 BraTB is a flexible pipeline for detecting antimicrobial resistance in Mycobacterium tuberculosis.
 
-BraTB Analysis Pipeline is the main *per-isolate* workflow in BraTB. Built with
+BraTB Analysis Pipeline is the main per-isolate workflow in BraTB. Built with
 [Nextflow](https://www.nextflow.io/), input FASTQs (local or available from SRA/ENA)
 are put through numerous analyses, including quality control, assembly, annotation,
 minmer sketch queries, sequence typing, and more.
