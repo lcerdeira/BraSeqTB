@@ -6,7 +6,7 @@
 ![Last Commit](https://img.shields.io/github/last-commit/LaPAM-USP/braseqtb)
 ![Open Issues](https://img.shields.io/github/issues-raw/LaPAM-USP/braseqtb)
 
-# About
+# BraTB
 BraTB is a flexible pipeline for detecting antimicrobial resistance in Mycobacterium tuberculosis.
 
 BraTB Analysis Pipeline is the main per-isolate workflow in BraTB. Built with
@@ -23,13 +23,13 @@ choose which samples to include for processing with a BraTB Tool.
 
 BraTB was inspired by [Staphopia](https://staphopia.github.io/) and MAGMA [MAGMA](https://github.com/TORCH-Consortium/MAGMA?tab=readme-ov-file#Prerequisites) 
 
-# Documentation
+### Documentation
 Documentation for BraTB is available [here](https://github.com/LaPAM-USP/BraSeqTB/wiki).
 
-# Quick Start
+### Quick Start
 ```
 
-# Installation
+### Installation
 BraTB has **a lot** of tools built into its workflow. All these tools
 lead to numerous dependencies, and navigating dependencies can often become very frustrating. With this in mind, from the onset, BraTB was developed to include only programs that could be installable using [Conda](https://conda.io/en/latest/).
 
@@ -43,43 +43,39 @@ is a good starting point for getting started with Conda. BraTB has been tested u
 Once you have Conda all setup; you are ready to create an environment for BraTB.
 
 ```
-# Recommended
+### Recommended
 mamba create -n bratb -c conda-forge -c bioconda bratb
 
-# or with standard conda
+### or with standard conda
+
 conda create -n bratb -c conda-forge -c bioconda bratb
 ```
-
 After a few minutes, you will have a new conda environment suitably named *BraTB*. To
 activate this environment, you will use the following command:
-
 ```
 conda activate bratb
 ```
-
 And voilà, you are all set to get started processing your data!
+```
 
-# Please Cite Datasets and Tools
+### Please Cite Datasets and Tools
 If you have used BraTB in your work, please be sure to cite any datasets or tools you may
 have used. [A list of each dataset/tool used by BraTB has been made available](https://braseqtb.github.io/latest/impact-and-outreach/acknowledgements/). 
 
 *If a citation needs to be updated, please let me know!*
 
-# Acknowledgements
+### Acknowledgements
 BraTB is genuinely a case of *"standing upon the shoulders of giants"*. Nearly every component
 of BraTB was created by others and made freely available to the public.
 
-# Feedback
+### Feedback
 Your feedback is precious! If you run into any issues using BraTB, have questions, or have some ideas to improve BraTB, I highly encourage you to submit them to the [Issue Tracker](https://github.com/braseqtb/braseqtb/issues).
 
-# License
-[MIT License](https://raw.githubusercontent.com/braseqtb/braseqtb/master/LICENSE)
+### Citation
 
-# Citation
+Zenodo
 
-Zenodo doi: 
-
-# Author
+### Authors
 
 * Louise Cerdeira
 * Twitter: [@louisecerdeira](https://twitter.com/louisecerdeira)
@@ -89,8 +85,8 @@ Zenodo doi:
 * Taiana Tainá
 
 * Ana Márcia Guimarães
-* Twitter: [@anaguimaraes](https://twitter.com/anaguimaraes) -->
+* Twitter: [@anaguimaraes](https://twitter.com/anaguimaraes)
 
-## Funding
+### Funding
 
 Support for this project came from a CNPq.
