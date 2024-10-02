@@ -4,13 +4,20 @@ channels:
   - bioconda
   - defaults
 dependencies:
-  - python=2.7
+#NOTE: Not natively. Python 2.7 was sunsetted prior to release of the osx-arm64 platform, so there isn't any such build. One could try requesting such a build on the Conda Forge Python feedstock, but even if someone did that you'd still face the issue that most Python packages will also lack osx-arm64 builds for Python 2.7.
+#Emulate through Rosetta. Apple provides an x86_64 emulator, Rosetta 2, which will run x86_64 binaries, such as what would be installed with Conda environments using an osx-64 subdir. One can create environments with such a subdir setting with something like:
+#CONDA_SUBDIR=osx-64 conda create -n py27 python=2.7  # include other packages here
+# ensure that future package installs in this env stick to 'osx-64'
+#conda activate py27
+#conda config --env --set subdir osx-64
+
+#  - python=2.7 
   - bwa=0.7.17
   - samtools=1.9
   - iqtree=2.1.2
   - snp-dists=0.8.2
   - snp-sites=2.4.0
   - bcftools=1.9
-  - snpeff=4.3.1t
+  - snpeff=4.3.1
   - clusterpicker=1.2.3
   - bc=1.07.1

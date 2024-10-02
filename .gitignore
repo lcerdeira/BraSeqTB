@@ -21,12 +21,12 @@ containers/bratb-container/resistance_db_who
 
 .idea
 work/
-data/full_data
+data/resistance_db_who
+data/input-data
 results*
 *.nextflow*
-
-conda_envs/bratb-env*
-containers/**/*yml
+bratb-results
+# containers/**/*yml
 
 bratb.csv
 bratb.sh
