@@ -11,7 +11,7 @@ on:
   push:
     branches: [ "main" ]
     # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
+    tags: [ 'v1.1.1' ]
   pull_request:
     branches: [ "main" ]
 
@@ -19,7 +19,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as lcerdeira/bratb
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: ${{  lcerdeira/bratb }}
 
 
 jobs:
