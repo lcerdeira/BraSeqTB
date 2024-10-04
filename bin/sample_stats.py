@@ -14,11 +14,8 @@ if __name__ == '__main__':
     parser.add_argument('--flagstat_file', dest='flagstat_file', required=True, metavar='flagstat_file', type=str, help='The flag stats file')
     parser.add_argument('--samtoolsstats_file', dest='samtoolsstats_file', required=True, metavar='samtoolsstats_file', type=str, help='The samtools stats file')
     parser.add_argument('--wgsmetrics_file', dest='wgsmetrics_file', required=True, metavar='wgsmetrics_file', type=str, help='The WGS metrics file')
-    parser.add_argument('--ntmfraction_file', dest='ntmfraction_file', required=True, metavar='ntmfraction_file', type=str, help='The NTM fraction file')
-
     parser.add_argument('--cutoff_median_coverage', metavar='cutoff_median_coverage', default=10, type=float, help='The median coverage cutoff threshold')
     parser.add_argument('--cutoff_breadth_of_coverage', metavar='cutoff_breadth_of_coverage', default=0.9, type=float, help='The breadth of coverage cutoff threshold')
-    parser.add_argument('--cutoff_ntm_fraction', metavar='cutoff_ntm_fraction', default=0.2, type=float, help='The NTM fraction cutoff threshold')
 
 ## NOTE: This is computed by the multiple_infection_filter script
 #    parser.add_argument('--cutoff_rel_abundance', metavar='cutoff_rel_abundance', default=0.8, type=float, help='The relative abundance cutoff threshold')
@@ -30,8 +27,6 @@ if __name__ == '__main__':
             if '## METRICS CLASS' in line:
                 rows = [f.readline().strip(), f.readline().strip()]
                 wgsmetrics = pd.DataFrame([rows[1].split('\t')], columns=rows[0].split('\t'))
-    with open(args['ntmfraction_file']) as f:
-        ntm_fraction = float(f.read().strip())
     with open(args['samtoolsstats_file']) as f:
         for line in f:
             if 'insert size average' in line:
@@ -56,16 +51,11 @@ if __name__ == '__main__':
     else:
         breadth_of_coverage_threshold_met = 0
 
-    if ntm_fraction <= args['cutoff_ntm_fraction']:
-        ntm_fraction_threshold_met = 1
-    else:
-        ntm_fraction_threshold_met = 0
-
-    if coverage_threshold_met and breadth_of_coverage_threshold_met and ntm_fraction_threshold_met:
+    if coverage_threshold_met and breadth_of_coverage_threshold_met:
         all_thresholds_met = 1
     else:
         all_thresholds_met = 0
 
     with open('{}.stats.tsv'.format(args['sample_name']), 'w') as f:
-        f.write('\t'.join([str(i) for i in [args['sample_name'], ins_size, mapped_p, total_seqs, avg_qual] + list(wgsmetrics.loc[0, ['MEAN_COVERAGE', 'SD_COVERAGE', 'MEDIAN_COVERAGE', 'MAD_COVERAGE', 'PCT_EXC_ADAPTER', 'PCT_EXC_MAPQ', 'PCT_EXC_DUPE', 'PCT_EXC_UNPAIRED', 'PCT_EXC_BASEQ', 'PCT_EXC_OVERLAP', 'PCT_EXC_CAPPED', 'PCT_EXC_TOTAL', 'PCT_1X', 'PCT_5X', 'PCT_10X', 'PCT_30X', 'PCT_50X', 'PCT_100X']]) + [ntm_fraction, ntm_fraction_threshold_met, coverage_threshold_met, breadth_of_coverage_threshold_met, all_thresholds_met]]))
+        f.write('\t'.join([str(i) for i in [args['sample_name'], ins_size, mapped_p, total_seqs, avg_qual] + list(wgsmetrics.loc[0, ['MEAN_COVERAGE', 'SD_COVERAGE', 'MEDIAN_COVERAGE', 'MAD_COVERAGE', 'PCT_EXC_ADAPTER', 'PCT_EXC_MAPQ', 'PCT_EXC_DUPE', 'PCT_EXC_UNPAIRED', 'PCT_EXC_BASEQ', 'PCT_EXC_OVERLAP', 'PCT_EXC_CAPPED', 'PCT_EXC_TOTAL', 'PCT_1X', 'PCT_5X', 'PCT_10X', 'PCT_30X', 'PCT_50X', 'PCT_100X']]) + [coverage_threshold_met, breadth_of_coverage_threshold_met, all_thresholds_met]]))
         f.write('\n')

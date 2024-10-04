@@ -141,7 +141,7 @@ if __name__ == '__main__':
 # ADD FILTER FOR SAMPLES FAILING ONLY << RELABUNDANCE THRESHOLD_MET >>
 #===============
     stats_df = pd.read_csv(args["merged_cohort_stats_file"], sep="\t")
-    filtered_stats_df = stats_df.loc[ (stats_df["RELABUNDANCE_THRESHOLD_MET"]==0) & (stats_df["MAPPED_NTM_FRACTION_16S_THRESHOLD_MET"]==1) & (stats_df["COVERAGE_THRESHOLD_MET"]==1) & (stats_df["BREADTH_OF_COVERAGE_THRESHOLD_MET"]==1)]
+    filtered_stats_df = stats_df.loc[ (stats_df["RELABUNDANCE_THRESHOLD_MET"]==0) & (stats_df["COVERAGE_THRESHOLD_MET"]==1) & (stats_df["BREADTH_OF_COVERAGE_THRESHOLD_MET"]==1)]
 
     samples_df = pd.DataFrame(list(samples), columns=['full_sample'])
     filtered_samples_df = samples_df[samples_df["full_sample"].isin(filtered_stats_df["SAMPLE"].to_list())]
