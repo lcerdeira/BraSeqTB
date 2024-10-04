@@ -29,7 +29,6 @@ process LOFREQ_INDELQUAL {
             -o ${sampleName}.dindel.bam \\
             ${recalibratedBam} "
 
-        touch ${sampleName}.potential_NTM_fraction.txt
         touch ${sampleName}.dindel.bam
         """
 

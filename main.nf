@@ -12,7 +12,6 @@ include { MAP_WF } from './workflows/map_wf.nf'
 include { MERGE_WF } from './workflows/merge_wf.nf'
 include { MINOR_VARIANTS_ANALYSIS_WF } from './workflows/minor_variants_analysis_wf.nf'
 // include { MULTIQC AS MULTIQC_FASTQS } from '../modules/multiqc/multiqc.nf' addParams (params.MULTIQC_FASTQS)
-include { QUALITY_CHECK_WF } from './workflows/quality_check_wf.nf'
 include { REPORTS_WF } from './workflows/reports_wf.nf'
 include { SAMPLESHEET_VALIDATION } from './modules/utils/samplesheet_validation.nf'  addParams ( params.SAMPLESHEET_VALIDATION )
 include { STRUCTURAL_VARIANTS_ANALYSIS_WF } from './workflows/structural_variants_analysis_wf.nf'
@@ -30,19 +29,12 @@ workflow {
 
         VALIDATE_FASTQS_WF( SAMPLESHEET_VALIDATION.out.validated_samplesheet , SAMPLESHEET_VALIDATION.out.status )
 
-        QUALITY_CHECK_WF( VALIDATE_FASTQS_WF.out.approved_fastqs_ch )
-
-        //MULTIQC_FASTQS( QUALITY_CHECK_WF.out.reports_fastqc_ch )
-
     } else  {
 
         SAMPLESHEET_VALIDATION(params.input_samplesheet)
 
 
         VALIDATE_FASTQS_WF( SAMPLESHEET_VALIDATION.out.validated_samplesheet , SAMPLESHEET_VALIDATION.out.status )
-
-        QUALITY_CHECK_WF( VALIDATE_FASTQS_WF.out.approved_fastqs_ch )
-
 
         MAP_WF( VALIDATE_FASTQS_WF.out.approved_fastqs_ch  )
 
@@ -88,8 +80,7 @@ workflow {
                       approved_samples_ch )
 
 
-            REPORTS_WF( QUALITY_CHECK_WF.out.reports_fastqc_ch,
-                        UTILS_MERGE_COHORT_STATS.out.merged_cohort_stats_ch,
+            REPORTS_WF( UTILS_MERGE_COHORT_STATS.out.merged_cohort_stats_ch,
                         MERGE_WF.out.major_variants_results_ch,
                         MINOR_VARIANTS_ANALYSIS_WF.out.minor_variants_results_ch,
                         STRUCTURAL_VARIANTS_ANALYSIS_WF.out.structural_variants_results_ch )
