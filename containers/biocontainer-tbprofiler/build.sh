@@ -1,10 +1,10 @@
 #!/bin/bash
 set -uex
 
-# NOTE: Make sure you've set the environment correctly and are logged in to the registry.
+# NOTE: Make sure you've set the environment correctly and are logged in to the registry along with the sudo permission adjustment; otherwise, you will need to run using sudo.
 
 TBPROFILER_VERSION=6.3.0
-DOCKER_NAMESPACE="lcerdeira/bratb"
+DOCKER_NAMESPACE="lcerdeira/bratb-tbprofiler"
 
 CONTAINER_NAME="$DOCKER_NAMESPACE/biocontainer-tbprofiler:$TBPROFILER_VERSION"
 
