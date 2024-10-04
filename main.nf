@@ -47,7 +47,6 @@ workflow {
                                   MINOR_VARIANTS_ANALYSIS_WF.out.rejected_samples_ch,
                                   CALL_WF.out.cohort_stats_tsv )
 
-
         all_samples_ch = UTILS_MERGE_COHORT_STATS.out.merged_cohort_stats_ch
                                 .splitCsv(header: false, skip: 1, sep: '\t' )
                                 .map { row -> [
