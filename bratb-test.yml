@@ -1,6 +1,6 @@
 
-# Sample contents of my_parameters_1.yml file
+# Sample contents of paramns.yml file
 
-input_samplesheet: /Users/lshlt19/GitHub/BRATBLC/BraSeqTB/data/input-data/input_test.csv
+input_samplesheet: /home/lcerdeira/BraSeqTB/data/input-data/input_test.csv
 only_validate_fastqs: true
-conda_envs_location: /Users/lshlt19/GitHub/BRATBLC/BraSeqTB/conda_envs
+conda_envs_location: /home/lcerdeira/BraSeqTB/conda_envs

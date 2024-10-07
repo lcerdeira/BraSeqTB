@@ -5,7 +5,6 @@ include { GATK_BASE_RECALIBRATOR } from "../modules/gatk/base_recalibrator.nf" a
 include { GATK_APPLY_BQSR } from "../modules/gatk/apply_bqsr.nf" addParams ( params.GATK_APPLY_BQSR )
 include { GATK_HAPLOTYPE_CALLER } from "../modules/gatk/haplotype_caller.nf" addParams ( params.GATK_HAPLOTYPE_CALLER )
 include { GATK_HAPLOTYPE_CALLER__MINOR_VARIANTS } from "../modules/gatk/haplotype_caller__minor_variants.nf" addParams ( params.GATK_HAPLOTYPE_CALLER__MINOR_VARIANTS )
-// include { LOFREQ_CALL__NTM } from "../modules/lofreq/call__ntm.nf" addParams ( params.LOFREQ_CALL__NTM )
 include { LOFREQ_INDELQUAL } from "../modules/lofreq/indelqual.nf" addParams ( params.LOFREQ_INDELQUAL )
 include { SAMTOOLS_INDEX } from "../modules/samtools/index.nf" addParams ( params.SAMTOOLS_INDEX )
 include { SAMTOOLS_INDEX__LOFREQ } from "../modules/samtools/index__lofreq.nf" addParams ( params.SAMTOOLS_INDEX__LOFREQ )
@@ -87,19 +86,6 @@ workflow CALL_WF {
                                                 [params.ref_fasta_fai, params.ref_fasta_dict])
         }
 
-        //----------------------------------------------------------------------------------
-        // Infer potential NTM contamination
-        //----------------------------------------------------------------------------------
-
-
-        // call_ntm
-        // LOFREQ_CALL__NTM(SAMTOOLS_INDEX.out,
-        //                  params.ref_fasta,
-        //                  [params.ref_fasta_fai])
-
-        //----------------------------------------------------------------------------------
-        // Infer minor variants with LoFreq
-        //----------------------------------------------------------------------------------
 
         // call_lofreq
         LOFREQ_INDELQUAL(recalibrated_bam_ch, params.ref_fasta)
@@ -131,9 +117,6 @@ workflow CALL_WF {
         sample_stats_ch = (SAMTOOLS_STATS.out)
             .join(GATK_COLLECT_WGS_METRICS.out)
             .join(GATK_FLAG_STAT.out)
-            // .join(LOFREQ_CALL__NTM.out)
-            //.dump(tag: "CALL_WF sample_stats_ch : ", pretty: true)
-
 
         UTILS_SAMPLE_STATS(sample_stats_ch)
 
